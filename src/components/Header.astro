@@ -8,7 +8,7 @@ import Logo from "../assets/logo.webp";
     <a href="/" class="header__logo">
         <img src={Logo.src} alt="Logo Brian Exequiel" class="header__logo-image" />
       </a>
-      <nav class="header__nav">
+      <nav class="header__nav active">
         <ul class="header__nav-list">
           <li class="header__nav-item"><a href="/portfolio" class="header__nav-link">Portfolio</a></li>
           <li class="header__nav-item"><a href="/services" class="header__nav-link">Servicios</a></li>
@@ -151,8 +151,22 @@ import Logo from "../assets/logo.webp";
     left: 5px;
 }
   @media (max-width: 920px) {
-    .header__nav {
+    .header__nav-list {
       display: none;
+
+    }
+    .header__nav-list.active {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 100px);
+      background-color: rgb(255, 255, 255, .9);
+      padding: ;
+      z-index: 999;
     }
     .header__language-switcher {
       display: none;
@@ -160,5 +174,20 @@ import Logo from "../assets/logo.webp";
     .burger {
       display: block;
     }
+    #burger:checked + .header__nav-list {
+      display: block;
+    }
+    .active {
+      display: block;
+    }
   }
 </style>
+
+<script>
+    const burger = document.querySelector("#burger");
+    const navList = document.querySelector(".header__nav-list");
+
+    burger.addEventListener("click", () => {
+    navList.classList.toggle("active");
+});
+</script>
