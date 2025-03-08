@@ -3,8 +3,8 @@
 Welcome to my personal portfolio, built with **Astro** 🪐. This showcases my projects, skills, and experience in an interactive and responsive way.
 
 ## 🌍 Live Demos
-- **Production (main):** [project-name-main.netlify.app](https://brianexequiel.netlify.app)
-- **Staging (develop):** [project-name-develop.netlify.app](https://brianexequiel-dev.netlify.app)
+- **Production (main):** [brianexequiel.netlify.app](https://brianexequiel.netlify.app)
+- **Staging (develop):** [brianexequiel-dev.netlify.app](https://brianexequiel-dev.netlify.app)
 
 ## 🛠 Technologies
 - **Framework:** Astro
