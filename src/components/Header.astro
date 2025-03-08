@@ -1,36 +1,45 @@
 ---
-import Logo from "../assets/logo.webp";
+import Logo from "../assets/logo.png";
+import Switch from "../components/SwitchTheme.astro";
 // import LanguageSelector from "./LanguageSelector.astro";
 // import SwitchTheme from "./SwitchTheme.astro";
 ---
 
 <header class="header">
-    <a href="/" class="header__logo">
-        <img src={Logo.src} alt="Logo Brian Exequiel" class="header__logo-image" />
-      </a>
-      <nav class="header__nav active">
-        <ul class="header__nav-list">
-          <li class="header__nav-item"><a href="/portfolio" class="header__nav-link">Portfolio</a></li>
-          <li class="header__nav-item"><a href="/services" class="header__nav-link">Servicios</a></li>
-          <li class="header__nav-item"><a href="/resources" class="header__nav-link">Recursos</a></li>
-          <li class="header__nav-item"><a href="/blog" class="header__nav-link">Blog</a></li>
-        </ul>
-      </nav>
-      <div class="header__language-switcher">
-        <!-- <LanguageSelector />
-        <SwitchTheme /> -->
-        <button class="header__contact-button">Contacto</button>
-      </div>
-      <label class="burger">
-        <input type="checkbox" id="burger"/>
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
+  <a href="/" class="header__logo">
+    <img src={Logo.src} alt="Logo Brian Exequiel" class="header__logo-image" />
+    <span class="header__logo-text">Brian Exequiel</span>
+  </a>
+  <nav class="header__nav active">
+    <ul class="header__nav-list">
+      <li class="header__nav-item">
+        <a href="#hero" class="header__nav-link">Inicio</a>
+      </li>
+      <li class="header__nav-item">
+        <a href="#about" class="header__nav-link">Sobre mi</a>
+      </li>
+      <li class="header__nav-item">
+        <a href="#projects" class="header__nav-link">Proyectos</a>
+      </li>
+      <li class="header__nav-item">
+        <a href="#contact" class="header__nav-link">Contacto</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="header__language-switcher">
+    <Switch />
+    <button class="header__contact-button">Contacto</button>
+  </div>
+  <label class="burger">
+    <input type="checkbox" id="burger" />
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
 </header>
 
 <style>
-    .header {
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,26 +47,47 @@ import Logo from "../assets/logo.webp";
     height: 6.25rem;
     margin: 0 auto;
     padding: 0 1rem;
-
+  }
+  .header::before {
+    content: "";
+    width: 100vw;
+    height: 100px;
+    box-shadow: 0 8px 24px var(--color-shadow);
+    position: fixed;
+    left: 0;
+    z-index: -1;
 }
-.header__logo {
+  .header__logo {
     display: flex;
     align-items: center;
-    width: clamp(11.25rem, 10.795rem + 2.273vi, 12.5rem);
     height: auto;
-}
-.header__nav-list {
+    gap: 0.5rem;
+  }
+  .header__logo-image {
+    width: 30px;
+    height: auto;
+  }  
+  
+  .header__logo-text {
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+  
+  .header__nav-list {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.25rem;
-}
-.header__nav-link {
+    color: var(--color-text);
+  }
+  .header__nav-link {
     position: relative;
-}
+  }
 
-.header__nav-link::after {
-    content: '';
+  .header__nav-link::after {
+    content: "";
     position: absolute;
     left: 0;
     bottom: -2px;
@@ -65,46 +95,45 @@ import Logo from "../assets/logo.webp";
     height: 2px;
     background: var(--gradient);
     transition: width 0.3s ease;
-}
+  }
 
-.header__nav-link:hover::after {
+  .header__nav-link:hover::after {
     width: 100%;
-}
-.header__language-switcher {
+  }
+  .header__language-switcher {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 1.25rem;
-}
-.header__contact-button {
-    color: var(--white);
+    gap: 1.5rem;
+  }
+  .header__contact-button {
+    color: #ffffff;
     font-weight: 500;
     background: var(--gradient);
-    padding: .5rem 1.5rem;
-    border-radius: .5rem;
-}
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+  }
 
-.header__contact-button:hover {
-    opacity: 0.80;
-}
+  .header__contact-button:hover {
+    opacity: 0.8;
+  }
 
-.header__contact-button:active {
+  .header__contact-button:active {
     transform: scale(0.98);
-}
-.burger {
+  }
+  .burger {
     position: relative;
     width: 2.5rem;
     height: 30px;
     background: transparent;
     cursor: pointer;
     display: none;
-}
+  }
 
-.burger input {
+  .burger input {
     display: none;
-}
+  }
 
-.burger span {
+  .burger span {
     display: block;
     position: absolute;
     height: 4px;
@@ -114,46 +143,45 @@ import Logo from "../assets/logo.webp";
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
-    transition: .25s ease-in-out;
-}
+    transition: 0.25s ease-in-out;
+  }
 
-.burger span:nth-of-type(1) {
+  .burger span:nth-of-type(1) {
     top: 0px;
     transform-origin: left center;
-}
+  }
 
-.burger span:nth-of-type(2) {
+  .burger span:nth-of-type(2) {
     top: 50%;
     transform: translateY(-50%);
     transform-origin: left center;
-}
+  }
 
-.burger span:nth-of-type(3) {
+  .burger span:nth-of-type(3) {
     top: 100%;
     transform-origin: left center;
     transform: translateY(-100%);
-}
+  }
 
-.burger input:checked~span:nth-of-type(1) {
+  .burger input:checked ~ span:nth-of-type(1) {
     transform: rotate(45deg);
     top: 0px;
     left: 5px;
-}
+  }
 
-.burger input:checked~span:nth-of-type(2) {
+  .burger input:checked ~ span:nth-of-type(2) {
     width: 0%;
     opacity: 0;
-}
+  }
 
-.burger input:checked~span:nth-of-type(3) {
+  .burger input:checked ~ span:nth-of-type(3) {
     transform: rotate(-45deg);
     top: 28px;
     left: 5px;
-}
+  }
   @media (max-width: 920px) {
     .header__nav-list {
       display: none;
-
     }
     .header__nav-list.active {
       display: flex;
@@ -164,8 +192,8 @@ import Logo from "../assets/logo.webp";
       left: 0;
       width: 100%;
       height: calc(100vh - 100px);
-      background-color: rgb(255, 255, 255, .9);
-      padding: ;
+      background-color: rgb(255, 255, 255, 0.9);
+      padding:;
       z-index: 999;
     }
     .header__language-switcher {
@@ -184,10 +212,10 @@ import Logo from "../assets/logo.webp";
 </style>
 
 <script>
-    const burger = document.querySelector("#burger");
-    const navList = document.querySelector(".header__nav-list");
+  const burger = document.querySelector("#burger");
+  const navList = document.querySelector(".header__nav-list");
 
-    burger.addEventListener("click", () => {
+  burger.addEventListener("click", () => {
     navList.classList.toggle("active");
-});
+  });
 </script>

@@ -27,16 +27,27 @@
 
 :root {
     --black: #000;
-    --black-1: #2e2e2e;
-    --black-2: #4e4e4e;
-    --black-3: #6e6e6e;
     --white: #fff;
+    --color-text: #475467;
+    --color-title: #101828;
+    --color-bg: #ffffff;
+    --color-shadow: rgba(0, 0, 0, 0.1);
     --orange: #FF7C03;
     --orange-light: #FFBD80;
     --orange-extralight: #FFFBF6;
     --gradient: linear-gradient(to right, #6604FD, #FD003C, #FDBA01);
     --tipo-principal: 'Poppins-Regular', sans-serif;
     --tipo-secundaria: Verdana;
+}
+
+/* ========= Dark Mode =========== */
+[data-theme="dark"] {
+    --color-bg: #1a1a1a;
+    --color-text: #ffffff;
+    --color-title: #ffffff;
+    --color-shadow: rgba(255, 255, 255, 0.1);
+    --white: #000;
+    --black: #fff;
 }
 
 * {
@@ -156,7 +167,8 @@ body {
     min-height: 100vh;
     font-size: 100%;
     font-family: var(--tipo-principal);
-    color: var(--negro);
+    color: var(--color-text);
+    background-color: var(--color-bg);
     line-height: 1.4em;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;

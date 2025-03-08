@@ -1,6 +1,7 @@
 ---
-import Header from '../components/Header.astro';
-import '../styles/global.css';
+import Header from "../components/Header.astro";
+import Switch from "../components/SwitchTheme.astro";
+import "../styles/global.css";
 interface Props {
     title: string;
     keywords: string;
@@ -15,23 +16,24 @@ const { title, keywords, description } = Astro.props;
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
-        <meta
-            name="keywords"
-            content={keywords}
-        />
-        <meta
-            name="description"
-            content={description}
-        />
+        <meta name="keywords" content={keywords} />
+        <meta name="description" content={description} />
         <meta name="author" content="Brian Exequiel" />
         <meta name="copyright" content="Brian Exequiel" />
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/favicond.png" type="image/png" />
         <meta name="theme-color" content="#FF7C03" />
         <meta name="generator" content={Astro.generator} />
+        <script>
+            // Script inicial en el head
+            const savedTheme = localStorage.getItem("theme") || "light";
+            // Elimina la detección del sistema
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        </script>
     </head>
     <body>
         <Header />
         <slot />
+        <script src="/public/scripts/themeToggle.js" defer></script>
     </body>
 </html>
