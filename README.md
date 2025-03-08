@@ -1,47 +1,29 @@
-# Astro Starter Kit: Minimal
+# 🚀 Personal Portfolio - Brian Exequiel
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Welcome to my personal portfolio, built with **Astro** 🪐. This showcases my projects, skills, and experience in an interactive and responsive way.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## 🌍 Live Demos
+- **Production (main):** [project-name-main.netlify.app](https://brianexequiel.netlify.app)
+- **Staging (develop):** [project-name-develop.netlify.app](https://brianexequiel-dev.netlify.app)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🛠 Technologies
+- **Framework:** Astro
+- **Styling:** CSS
+- **Deployment:** Netlify (main & develop)
 
-## 🚀 Project Structure
+## 🚧 Local Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/BrianPutallazExequiel/brianexequiel.git
+   ```
+2. Install dependencies:
+    ```bash
+    pnpm install
+    ```
+3. Run in development mode:
+    ```bash
+    pnpm run dev
+    ```
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+✨ Contact: brianexequielputallaz.com | <a href="https://www.linkedin.com/in/brian-exequiel-putallaz/">LinkedIn
+---
