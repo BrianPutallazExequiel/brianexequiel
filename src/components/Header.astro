@@ -1,5 +1,6 @@
 ---
 import Switch from "../components/SwitchTheme.astro";
+const { class: className } = Astro.props;
 ---
 
 <header class="header">
@@ -23,8 +24,10 @@ import Switch from "../components/SwitchTheme.astro";
       </li>
     </ul>
   </nav>
-  <div class="header__language-switcher">
-    <Switch />
+  <div class="header__container-right">
+    <div class="theme-switch">
+      <Switch />
+    </div>
     <button class="header__contact-button">Contacto</button>
   </div>
   <label class="burger">
@@ -97,7 +100,7 @@ import Switch from "../components/SwitchTheme.astro";
   .header__nav-link:hover::after {
     width: 100%;
   }
-  .header__language-switcher {
+  .header__container-right {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -135,7 +138,7 @@ import Switch from "../components/SwitchTheme.astro";
     position: absolute;
     height: 4px;
     width: 100%;
-    background: black;
+    background: var(--black);
     border-radius: 9px;
     opacity: 1;
     left: 0;
@@ -180,6 +183,9 @@ import Switch from "../components/SwitchTheme.astro";
     .header__nav-list {
       display: none;
     }
+    .theme-switch {
+      display: none;
+    }
     .header__nav-list.active {
       display: flex;
       flex-direction: column;
@@ -189,11 +195,18 @@ import Switch from "../components/SwitchTheme.astro";
       left: 0;
       width: 100%;
       height: calc(100vh - 100px);
-      background-color: rgb(255, 255, 255, 0.9);
-      padding:;
-      z-index: 999;
+      background-color: var(--white);
+      z-index: 100;
+      padding-bottom: 7rem;
     }
-    .header__language-switcher {
+    .theme-switch.active {
+      display: block;
+      position: absolute;
+      top: 540px;
+      left: 43%;
+      z-index: 110;
+    }
+    .header__contact-button {
       display: none;
     }
     .burger {
@@ -211,8 +224,10 @@ import Switch from "../components/SwitchTheme.astro";
 <script>
   const burger = document.querySelector("#burger");
   const navList = document.querySelector(".header__nav-list");
+  const themeToggle = document.querySelector(".theme-switch");
 
   burger.addEventListener("click", () => {
     navList.classList.toggle("active");
+    themeToggle.classList.toggle("active");
   });
 </script>
