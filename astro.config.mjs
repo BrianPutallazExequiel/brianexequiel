@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
+import image from '@astrojs/image';
 
 export default defineConfig({
-  // Configuraciones generales (si las necesitas)
+  integrations: [image()] // <-- Debe estar añadido
 });
