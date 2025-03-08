@@ -194,7 +194,7 @@ const { class: className } = Astro.props;
       top: 100px;
       left: 0;
       width: 100%;
-      height: calc(100vh - 100px);
+      height: min(100dvh - 100px, calc(100vh - 100px));
       background-color: var(--white);
       z-index: 100;
       padding-bottom: 7rem;
@@ -202,8 +202,8 @@ const { class: className } = Astro.props;
     .theme-switch.active {
       display: block;
       position: absolute;
-      top: 540px;
       left: 43%;
+      bottom: 30dvh;
       z-index: 110;
     }
     .header__contact-button {
