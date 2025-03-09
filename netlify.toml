@@ -1,0 +1,6 @@
+# netlify.toml
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/language-redirect"
+  status = 200
+  force = true
