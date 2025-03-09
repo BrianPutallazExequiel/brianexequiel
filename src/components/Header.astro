@@ -1,43 +1,34 @@
 ---
 import Switch from "../components/SwitchTheme.astro";
-import LanguageSelector from "../components/LanguageSelector.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { class: className } = Astro.props;
 ---
 
 <header class="header">
-  <a href={`/${lang}/`} class="header__logo">
-    <img
-      src="/images/logo.png"
-      alt="Logo Brian Exequiel"
-      class="header__logo-image"
-    />
+  <a href="/" class="header__logo">
+    <img src="/images/logo.png" alt="Logo Brian Exequiel" class="header__logo-image" />
     <span class="header__logo-text">Brian Exequiel</span>
   </a>
   <nav class="header__nav active">
     <ul class="header__nav-list">
       <li class="header__nav-item">
-        <a href="#hero" class="header__nav-link">{t("nav.home")}</a>
+        <a href="#hero" class="header__nav-link">Inicio</a>
       </li>
       <li class="header__nav-item">
-        <a href="#about" class="header__nav-link">{t("nav.about")}</a>
+        <a href="#about" class="header__nav-link">Sobre mi</a>
       </li>
       <li class="header__nav-item">
-        <a href="#projects" class="header__nav-link">{t("nav.projects")}</a>
+        <a href="#projects" class="header__nav-link">Proyectos</a>
       </li>
       <li class="header__nav-item">
-        <a href="#contact" class="header__nav-link">{t("nav.contact")}</a>
+        <a href="#contact" class="header__nav-link">Contacto</a>
       </li>
     </ul>
   </nav>
   <div class="header__container-right">
     <div class="theme-switch">
       <Switch />
-      <LanguageSelector />
     </div>
-    <button class="header__contact-button">{t("nav.contact")}</button>
+    <button class="header__contact-button">Contacto</button>
   </div>
   <label class="burger">
     <input type="checkbox" id="burger" />
@@ -65,7 +56,7 @@ const t = useTranslations(lang);
     position: fixed;
     left: 0;
     z-index: -1;
-  }
+}
   .header__logo {
     display: flex;
     align-items: center;
@@ -75,15 +66,15 @@ const t = useTranslations(lang);
   .header__logo-image {
     width: 27px;
     height: auto;
-  }
-
+  }  
+  
   .header__logo-text {
     width: 100%;
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-title);
   }
-
+  
   .header__nav-list {
     display: flex;
     justify-content: center;
@@ -112,12 +103,7 @@ const t = useTranslations(lang);
   .header__container-right {
     display: flex;
     align-items: center;
-    gap: 1rem;
-  }
-  .theme-switch {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   .header__contact-button {
     color: #ffffff;
@@ -208,17 +194,16 @@ const t = useTranslations(lang);
       top: 100px;
       left: 0;
       width: 100%;
-      height: calc(100vh - 100px);
+      height: min(100dvh - 100px, calc(100vh - 100px));
       background-color: var(--white);
       z-index: 100;
       padding-bottom: 7rem;
     }
     .theme-switch.active {
-      display: flex;
+      display: block;
       position: absolute;
-      left: 50%;
-      bottom: 30px;
-      transform: translateX(-50%);
+      left: 43%;
+      bottom: 30dvh;
       z-index: 110;
     }
     .header__contact-button {

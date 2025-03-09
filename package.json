@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.18.0",
-    "astro": "^5.2.5",
-    "astro-i18n": "^2.2.4"
+    "astro": "^5.2.5"
   }
 }

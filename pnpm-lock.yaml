@@ -14,9 +14,6 @@ importers:
       astro:
         specifier: ^5.2.5
         version: 5.2.5(rollup@4.34.6)(typescript@5.7.3)
-      astro-i18n:
-        specifier: ^2.2.4
-        version: 2.2.4(esbuild@0.24.2)
 
 packages:
 
@@ -531,12 +528,6 @@ packages:
 
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
-
-  astro-i18n@2.2.4:
-    resolution: {integrity: sha512-vhvxBtStNLLghtl63aGhBEtU1DqlYz0D3ggz5Nh2QZok36s9Ss3v9b4txN3mH/OZ90JUwkII13CYQL9wozjXBQ==}
-    hasBin: true
-    peerDependencies:
-      esbuild: 0.x
 
   astro@5.2.5:
     resolution: {integrity: sha512-AYXyYkc+c5xbKTm48FyQA91y81nXyNPAaoyafR0LUugE4lAwuvIUcXDBfMzmbuP1lGRvsE33G2oypv6gbGaPFg==}
@@ -1923,10 +1914,6 @@ snapshots:
   aria-query@5.3.2: {}
 
   array-iterate@2.0.1: {}
-
-  astro-i18n@2.2.4(esbuild@0.24.2):
-    dependencies:
-      esbuild: 0.24.2
 
   astro@5.2.5(rollup@4.34.6)(typescript@5.7.3):
     dependencies:
