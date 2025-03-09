@@ -32,10 +32,12 @@ console.log({ currentLocale });
             // Elimina la detección del sistema
             document.documentElement.setAttribute("data-theme", savedTheme);
         </script>
+        
     </head>
     <body>
         <Header />
         <slot />
         <script is:inline src="/scripts/themeToggle.js" defer></script>
+        <script is:inline src="/src/scripts/detectLanguage.js" defer></script>
     </body>
 </html>
