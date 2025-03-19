@@ -1,0 +1,108 @@
+---
+// Props del componente
+export interface Props {
+    variant?: "primary" | "secondary"
+    title: string
+    iconLeft?: string // Código SVG para el ícono izquierdo
+    iconRight?: string // Código SVG para el ícono derecho
+    class?: string // Propiedad opcional para clases personalizadas
+}
+
+const {
+    variant = "primary",
+    title,
+    iconLeft,
+    iconRight,
+    class: customClass = "",
+} = Astro.props
+---
+
+<!-- Botón con clases dinámicas, incluyendo la clase personalizada -->
+<button class={`button ${variant} ${customClass}`}>
+    <!-- Ícono a la izquierda (si está definido) -->
+    {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
+
+    <!-- Texto del botón -->
+    {title}
+
+    <!-- Ícono a la derecha (si está definido) -->
+    {iconRight && <span class="icon icon-right" set:html={iconRight} />}
+</button>
+
+<style>
+    /* Estilos base del botón */
+    .button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem; /* Espacio entre íconos y texto */
+    }
+
+    /* Estilos para la variante primary (fondo de gradiente) */
+    .button.primary {
+        background: linear-gradient(to right, #6604fd, #fd003c, #fdba01);
+        color: white;
+    }
+
+    .button.primary:hover {
+        opacity: 0.9;
+    }
+
+    /* Estilos para la variante secondary (borde de gradiente) */
+    .button.secondary {
+        background: transparent;
+        color: #fd003c;
+        border: 2px solid transparent;
+        position: relative;
+    }
+
+    /* Pseudoelemento para el borde de gradiente */
+    .button.secondary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 0.5rem;
+        border: 2px solid transparent;
+        background: linear-gradient(to right, #6604fd, #fd003c, #fdba01)
+            border-box;
+        mask:
+            linear-gradient(#fff 0 0) padding-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        transition: all 0.3s ease;
+    }
+
+    /* Efecto hover para la variante secondary */
+
+    
+
+    /* Estilos para los íconos */
+    .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem; /* Tamaño del ícono */
+        height: 1.5rem;
+    }
+
+    .icon-left {
+        margin-right: 0.5rem; /* Espacio a la derecha del ícono izquierdo */
+    }
+
+    .icon-right {
+        margin-left: 0.5rem; /* Espacio a la izquierda del ícono derecho */
+    }
+</style>

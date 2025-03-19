@@ -1,5 +1,7 @@
 ---
 import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+
 import "../styles/global.css";
 interface Props {
     title: string;
@@ -35,6 +37,7 @@ console.log({ currentLocale });
     </head>
     <body>
         <Header />
+        <Hero />
         <slot />
         <script is:inline src="/scripts/themeToggle.js" defer></script>
     </body>

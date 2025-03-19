@@ -1,14 +1,101 @@
 ---
-const profileImage = "/images/profile.png";
+import Button from '../components/Button.astro';
+import IconDownload from '/images/download.svg'
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+// Código SVG para los íconos
+const downloadIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"/>
+</svg>
+`;
 ---
 
 <section class="hero-section">
   <div class="hero__container-left">
-    <h2 class="hero__pvu">Transformando ideas en <br><span>negocios digitales exitosos</span></h2>
-    <p>Con experiencia en diseño UX/UI y programación, transformo ideas en negocios digitales asegurando resultados que conectan con usuarios y atraen clientes.</p>
+    <h2 class="hero__title1">{t("hero.presentation")}</h2>
+    <h2 class="hero__title2">{t("hero.title")}</h2>
+    <p class="hero__subtitle">{t("hero.subtitle")}</p>
+    <Button variant="primary" title={t("nav.contact")}/>
+    <Button variant="secondary" title={t("hero.download")} iconRight={ downloadIcon }/>
   </div>
   
   <div class="hero__container-right">
-    <img src={profileImage} alt="Brian Exequiel" />
+    <img src="/images/brian-exequiel.webp" alt="Brian Exequiel" />
   </div>
 </section>
+
+<style>
+  .hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 1rem;
+    width: 100%;
+    height: calc(100vh - 100px);
+  }
+  .hero__container-left {
+    width: 60%;
+  }
+  .hero__title1 {
+    color: var(--color-title);
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero__title2 {
+    background-image: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+  .hero__subtitle {
+    color: var(--color-subtitle);
+    font-size: 1rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+  }
+  .hero__container-right {
+    width: 40%;
+  }
+  @media (max-width: 785px) {
+    .hero-section {
+      flex-direction: column; /* Cambia a columna */
+      justify-content: center;
+      align-items: center;
+      width: 100%; /* Asegúrate de que ocupe el 100% del ancho */
+      height: auto; /* Ajusta la altura para que no sea fija */
+      padding-block: 2rem; /* Añade un padding vertical para separar los contenedores */
+    }
+    .hero__container-left {
+      width: 100%; /* Ocupa el 100% del ancho */
+      text-align: center;
+      margin-bottom: 2rem; /* Añade un margen inferior para separar los contenedores */
+    }
+    .hero__title1 {
+      font-size: 1.5rem;
+    }
+    .hero__title2 {
+      font-size: 2rem;
+    }
+    .hero__subtitle {
+      max-width: 100%;
+    }
+    .hero__container-right {
+      width: 100%; /* Ocupa el 100% del ancho */
+      text-align: center; /* Centra la imagen */
+    }
+    .hero__container-right img {
+      max-width: 350px;
+    }
+  }
+</style>

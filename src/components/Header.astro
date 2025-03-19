@@ -1,6 +1,7 @@
 ---
 import Switch from "../components/SwitchTheme.astro";
 import LanguageSelector from "../components/LanguageSelector.astro";
+import Button from '../components/Button.astro';
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -36,8 +37,8 @@ const t = useTranslations(lang);
     <div class="theme-switch">
       <Switch />
       <LanguageSelector />
+      <Button variant="primary" title={t("nav.contact")} class=".header__contact-button" />
     </div>
-    <button class="header__contact-button">{t("nav.contact")}</button>
   </div>
   <label class="burger">
     <input type="checkbox" id="burger" />
@@ -118,21 +119,6 @@ const t = useTranslations(lang);
     display: flex;
     align-items: center;
     gap: 1rem;
-  }
-  .header__contact-button {
-    color: #ffffff;
-    font-weight: 500;
-    background: var(--gradient);
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.5rem;
-  }
-
-  .header__contact-button:hover {
-    opacity: 0.8;
-  }
-
-  .header__contact-button:active {
-    transform: scale(0.98);
   }
   .burger {
     position: relative;
