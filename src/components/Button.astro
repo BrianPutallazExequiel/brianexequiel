@@ -32,6 +32,7 @@ const {
 <style>
     /* Estilos base del botón */
     .button {
+        width: 220px;
         padding: 0.75rem 1.5rem;
         border-radius: 0.5rem;
         font-size: 1rem;
@@ -43,9 +44,15 @@ const {
         z-index: 1;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 0.5rem; /* Espacio entre íconos y texto */
     }
-
+    .button:hover {
+        scale: 0.98;
+    }
+    .button:active {
+        scale: 0.95;
+    }
     /* Estilos para la variante primary (fondo de gradiente) */
     .button.primary {
         background: linear-gradient(to right, #6604fd, #fd003c, #fdba01);
@@ -59,7 +66,7 @@ const {
     /* Estilos para la variante secondary (borde de gradiente) */
     .button.secondary {
         background: transparent;
-        color: #fd003c;
+        color: hsl(340, 84%, 32%);
         border: 2px solid transparent;
         position: relative;
     }
