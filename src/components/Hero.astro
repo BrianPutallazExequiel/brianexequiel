@@ -1,6 +1,7 @@
 ---
 import Button from '../components/Button.astro';
-import IconDownload from '/images/download.svg'
+import { Image } from 'astro:assets';
+import brianImage from '../images/brian-exequiel.webp';
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -32,7 +33,7 @@ const downloadIcon = `
   </div>
   
   <div class="hero__container-right">
-    <img src="/images/brian-exequiel.webp" alt="Brian Exequiel" />
+    <Image src={brianImage} alt="Brian Exequiel" format="webp" width={500} height={500} />
   </div>
 </section>
 
