@@ -32,13 +32,12 @@ const t = useTranslations(lang);
         <a href="#contact" class="header__nav-link">{t("nav.contact")}</a>
       </li>
     </ul>
-    
   </nav>
   <div class="header__container-right">
     <div class="theme-switch">
       <Switch />
       <LanguageSelector />
-      <Button variant="primary" title={t("nav.contact")} class=".header__contact-button" />
+      <Button variant="primary" title={t("nav.contact")} class="header__contact-button" />
     </div>
   </div>
   <label class="burger">
@@ -81,14 +80,12 @@ const t = useTranslations(lang);
     width: 27px;
     height: auto;
   }
-
   .header__logo-text {
     width: 100%;
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-title);
   }
-
   .header__nav-list {
     display: flex;
     justify-content: center;
@@ -99,7 +96,6 @@ const t = useTranslations(lang);
   .header__nav-link {
     position: relative;
   }
-
   .header__nav-link::after {
     content: "";
     position: absolute;
@@ -110,7 +106,6 @@ const t = useTranslations(lang);
     background: var(--gradient);
     transition: width 0.3s ease;
   }
-
   .header__nav-link:hover::after {
     width: 100%;
   }
@@ -124,6 +119,10 @@ const t = useTranslations(lang);
     align-items: center;
     gap: 1rem;
   }
+  /* Estilos específicos para el botón de contacto */
+  .header__contact-button {
+    display: block;
+  }
   .burger {
     position: relative;
     width: 2.5rem;
@@ -132,11 +131,9 @@ const t = useTranslations(lang);
     cursor: pointer;
     display: none;
   }
-
   .burger input {
     display: none;
   }
-
   .burger span {
     display: block;
     position: absolute;
@@ -149,35 +146,29 @@ const t = useTranslations(lang);
     transform: rotate(0deg);
     transition: 0.25s ease-in-out;
   }
-
   .burger span:nth-of-type(1) {
     top: 0px;
     transform-origin: left center;
   }
-
   .burger span:nth-of-type(2) {
     top: 50%;
     transform: translateY(-50%);
     transform-origin: left center;
   }
-
   .burger span:nth-of-type(3) {
     top: 100%;
     transform-origin: left center;
     transform: translateY(-100%);
   }
-
   .burger input:checked ~ span:nth-of-type(1) {
     transform: rotate(45deg);
     top: 0px;
     left: 5px;
   }
-
   .burger input:checked ~ span:nth-of-type(2) {
     width: 0%;
     opacity: 0;
   }
-
   .burger input:checked ~ span:nth-of-type(3) {
     transform: rotate(-45deg);
     top: 28px;
@@ -189,6 +180,18 @@ const t = useTranslations(lang);
     }
     .theme-switch {
       display: none;
+    }
+    /* Oculta el botón de contacto en la versión móvil */
+    .header__contact-button {
+      display: none !important;
+    }
+    /* Muestra el botón en el menú desplegable */
+    .theme-switch.active .header__contact-button {
+      display: block !important;
+      width: 100%;
+      max-width: 200px;
+      margin: 1rem auto 0;
+      order: 3;
     }
     .header__nav-list.active {
       display: flex;
@@ -208,11 +211,13 @@ const t = useTranslations(lang);
     }
     .theme-switch.active {
       display: flex;
+      flex-direction: column;
       position: absolute;
       left: 50%;
       top: 550px;
       transform: translateX(-50%);
       z-index: 110;
+      gap: 1.5rem;
     }
     .burger {
       display: block;
