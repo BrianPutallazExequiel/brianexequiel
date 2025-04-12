@@ -3,9 +3,13 @@
 export interface Props {
     variant?: "primary" | "secondary"
     title: string
-    iconLeft?: string // Código SVG para el ícono izquierdo
-    iconRight?: string // Código SVG para el ícono derecho
-    class?: string // Propiedad opcional para clases personalizadas
+    iconLeft?: string
+    iconRight?: string
+    class?: string
+    download?: boolean
+    href?: string
+    downloadName?: string
+    onClick?: () => void
 }
 
 const {
@@ -14,24 +18,39 @@ const {
     iconLeft,
     iconRight,
     class: customClass = "",
+    download = false,
+    href = "",
+    downloadName = "",
+    onClick
 } = Astro.props
 ---
 
-<!-- Botón con clases dinámicas, incluyendo la clase personalizada -->
-<button class={`button ${variant} ${customClass}`}>
-    <!-- Ícono a la izquierda (si está definido) -->
-    {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
-
-    <!-- Texto del botón -->
-    {title}
-
-    <!-- Ícono a la derecha (si está definido) -->
-    {iconRight && <span class="icon icon-right" set:html={iconRight} />}
-</button>
+<!-- Componente Button con soporte para descargas -->
+{download ? (
+    <a 
+        href={href}
+        download={downloadName || href.split('/').pop()}
+        class={`button ${variant} ${customClass}`}
+        aria-label={`Descargar ${downloadName || 'archivo'}`}
+    >
+        {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
+        {title}
+        {iconRight && <span class="icon icon-right" set:html={iconRight} />}
+    </a>
+) : (
+    <button 
+        class={`button ${variant} ${customClass}`}
+        onClick={onClick}
+    >
+        {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
+        {title}
+        {iconRight && <span class="icon icon-right" set:html={iconRight} />}
+    </button>
+)}
 
 <style>
     /* Estilos base del botón */
-    .button {
+    .button, a.button {
         width: 220px;
         padding: 0.75rem 1.5rem;
         border-radius: 0.5rem;
@@ -45,26 +64,30 @@ const {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem; /* Espacio entre íconos y texto */
+        gap: 0.5rem;
+        text-decoration: none;
     }
-    .button:hover {
-        scale: 0.98;
+    
+    .button:hover, a.button:hover {
+        transform: scale(0.98);
     }
-    .button:active {
-        scale: 0.95;
+    
+    .button:active, a.button:active {
+        transform: scale(0.95);
     }
-    /* Estilos para la variante primary (fondo de gradiente) */
-    .button.primary {
+
+    /* Estilos para la variante primary */
+    .button.primary, a.button.primary {
         background: linear-gradient(to right, #6604fd, #fd003c, #fdba01);
         color: white;
     }
 
-    .button.primary:hover {
+    .button.primary:hover, a.button.primary:hover {
         opacity: 0.9;
     }
 
-    /* Estilos para la variante secondary (borde de gradiente) */
-    .button.secondary {
+    /* Estilos para la variante secondary */
+    .button.secondary, a.button.secondary {
         background: transparent;
         color: hsl(340, 84%, 32%);
         border: 2px solid transparent;
@@ -72,7 +95,7 @@ const {
     }
 
     /* Pseudoelemento para el borde de gradiente */
-    .button.secondary::before {
+    .button.secondary::before, a.button.secondary::before {
         content: "";
         position: absolute;
         top: 0;
@@ -92,24 +115,20 @@ const {
         transition: all 0.3s ease;
     }
 
-    /* Efecto hover para la variante secondary */
-
-    
-
     /* Estilos para los íconos */
     .icon {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 1.5rem; /* Tamaño del ícono */
+        width: 1.5rem;
         height: 1.5rem;
     }
 
     .icon-left {
-        margin-right: 0.5rem; /* Espacio a la derecha del ícono izquierdo */
+        margin-right: 0.5rem;
     }
 
     .icon-right {
-        margin-left: 0.5rem; /* Espacio a la izquierda del ícono derecho */
+        margin-left: 0.5rem;
     }
 </style>

@@ -1,7 +1,7 @@
 ---
 import Button from '../components/Button.astro';
 import { Image } from 'astro:assets';
-import brianImage from '../images/brian-exequiel.webp';
+import brianImage from '../images/brian-exequiel.png';
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -29,11 +29,11 @@ const downloadIcon = `
     <h2 class="hero__title2">{t("hero.title")}</h2>
     <p class="hero__subtitle">{t("hero.subtitle")}</p>
     <Button variant="primary" title={t("nav.contact")}/>
-    <Button variant="secondary" title={t("hero.download")} iconRight={ downloadIcon }/>
+    <Button variant="secondary" title="Descargar CV" iconRight={downloadIcon} download href="/public/cv/Curriculum-Brian-Putallaz.pdf" downloadName="Curriculum-Brian-Putallaz.pdf"/>
   </div>
   
   <div class="hero__container-right">
-    <Image src={brianImage} alt="Brian Exequiel" format="webp" width={500} height={500} />
+    <Image src={brianImage} alt="Brian Exequiel" format="png"/>
   </div>
 </section>
 
@@ -46,67 +46,117 @@ const downloadIcon = `
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    height: calc(100vh - 100px);
+    padding: 0 2rem;
+    min-height: calc(100vh - 100px);
     position: relative;
     top: 6.25rem;
+    gap: 2rem; /* Espacio entre contenedores */
   }
+
   .hero__container-left {
-    width: 60%;
+    flex: 1 1 50%;
+    min-width: 400px;
+    max-width: 600px;
   }
+
+  .hero__container-right {
+    flex: 1 1 40%;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__container-right img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    object-fit: contain;
+  }
+
   .hero__title1 {
     color: var(--color-title);
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     margin-bottom: 1rem;
   }
+
   .hero__title2 {
     background-image: var(--gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 5vw, 3rem);
     line-height: 1.4;
     margin-bottom: 2rem;
   }
+
   .hero__subtitle {
     color: var(--color-subtitle);
     font-size: 1rem;
     max-width: 600px;
     margin-bottom: 2rem;
   }
-  .hero__container-right {
-    width: 40%;
-  }
-  @media (max-width: 785px) {
+
+  /* Media Queries mejoradas */
+  @media (max-width: 1090px) {
     .hero-section {
-      flex-direction: column; /* Cambia a columna */
+      padding-top: 2rem;
       justify-content: center;
-      align-items: center;
-      width: 100%; /* Asegúrate de que ocupe el 100% del ancho */
-      height: auto; /* Ajusta la altura para que no sea fija */
-      padding-block: 2rem; /* Añade un padding vertical para separar los contenedores */
+      gap: 3rem;
     }
     .hero__container-left {
-      width: 100%; /* Ocupa el 100% del ancho */
       text-align: center;
-      margin-bottom: 2rem; /* Añade un margen inferior para separar los contenedores */
     }
+    .hero__container-left,
+    .hero__container-right {
+      flex: 1 1 100%;
+      min-width: auto;
+      max-width: 600px;
+    }
+    
+    .hero__container-right img {
+      max-width: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 0 2rem;
+      top: 5rem;
+    }
+    
+    
+    
+    .hero__title1 {
+      font-size: 1.8rem;
+    }
+    
+    .hero__title2 {
+      font-size: 2.2rem;
+    }
+    
+    .hero__subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero__container-right img {
+      max-width: 350px;
+    }
+  }
+
+  @media (max-width: 480px) {
     .hero__title1 {
       font-size: 1.5rem;
     }
+    
     .hero__title2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
-    .hero__subtitle {
-      max-width: 100%;
-    }
-    .hero__container-right {
-      width: 100%; /* Ocupa el 100% del ancho */
-      text-align: center; /* Centra la imagen */
-    }
+    
     .hero__container-right img {
-      max-width: 350px;
+      max-width: 280px;
     }
   }
 </style>
