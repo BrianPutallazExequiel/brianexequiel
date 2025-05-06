@@ -1,0 +1,36 @@
+---
+
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Título</title>
+        <style>
+            /* Critical CSS: https://midu.dev/como-extraer-el-critical-css-con-puppeteer/ */
+        </style>
+        <link rel="stylesheet" href="/src/style/global.css" />
+        <meta
+            name="keywords"
+            content="Palabras, clave, separadas, por , comas"
+        />
+        <meta
+            name="description"
+            content="Descripción breve de menos de 150 palabras"
+        />
+        <meta name="author" content="Brian Exequiel" />
+        <meta name="copyright" content="Brian Exequiel" />
+        <meta name="robots" content="index, follow" />
+        <link rel="shortcut icon" href="/public/assets/favicon/favicon.png" type="image/x-icon" />
+        <meta name="theme-color" content="#4285f4" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <!-- https://metatags.io/ y https://www.opengraph.xyz/-->
+        <meta name="generator" content={Astro.generator} />
+    </head>
+    <body>
+        <main>
+            <slot />
+        </main>
+    </body>
+</html>
