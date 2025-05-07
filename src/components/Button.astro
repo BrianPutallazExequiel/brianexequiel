@@ -1,0 +1,150 @@
+---
+// Props del componente
+export interface Props {
+    variant?: "primary" | "secondary"
+    title: string
+    iconLeft?: string
+    iconRight?: string
+    class?: string | Record<string, boolean>
+    download?: boolean
+    href?: string
+    downloadName?: string
+    onClick?: () => void
+}
+
+const {
+    variant = "primary",
+    title,
+    iconLeft,
+    iconRight,
+    class: customClass = "",
+    download = false,
+    href = "",
+    downloadName = "",
+    onClick
+} = Astro.props
+
+if (download && !href) {
+    throw new Error('El prop "href" es requerido cuando "download" es true');
+}
+---
+
+<!-- Componente Button con soporte para descargas -->
+{download ? (
+    <a 
+        href={href}
+        download={downloadName || href.split('/').pop()}
+        class={`button ${variant} ${customClass}`}
+        aria-label={`Descargar ${downloadName || 'archivo'}`}
+        rel="noopener noreferrer"
+    >
+        {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
+        {title}
+        {iconRight && <span class="icon icon-right" set:html={iconRight} />}
+    </a>
+) : (
+    <button 
+        class={`button ${variant} ${customClass}`}
+        onClick={onClick}
+        aria-label={title}
+    >
+        {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
+        {title}
+        {iconRight && <span class="icon icon-right" set:html={iconRight} />}
+    </button>
+)}
+
+<style>
+    /* Estilos base del botón */
+    .button, a.button {
+        width: 220px;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+    
+    .button:hover, a.button:hover {
+        transform: scale(0.98);
+    }
+    
+    .button:active, a.button:active {
+        transform: scale(0.95);
+    }
+
+    /* Variante primary */
+    .button.primary, a.button.primary {
+        background: linear-gradient(45deg, #6604fd 0%, #fd003c 50%, #fdba01 100%);
+        color: white;
+    }
+
+    .button.primary:hover, a.button.primary:hover {
+        opacity: 0.9;
+    }
+
+    /* Variante secondary */
+    .button.secondary, a.button.secondary {
+        color: #ff003c;
+        border: 2px solid transparent;
+        position: relative;
+    }
+
+    .button.secondary::before, a.button.secondary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        border-radius: 0.5rem;
+        border: 2px solid transparent;
+        background: linear-gradient(to right, #6604fd, #fd003c, #fdba01)
+            border-box;
+        mask:
+            linear-gradient(#fff 0 0) padding-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        transition: all 0.3s ease;
+    }
+
+    /* Íconos */
+    .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .icon-left {
+        margin-right: 0.5rem;
+    }
+
+    .icon-right {
+        margin-left: 0.5rem;
+    }
+
+    @media (max-width: 480px) {
+        .button, a.button {
+            min-width: 180px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+    }
+</style>

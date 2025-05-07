@@ -1,0 +1,322 @@
+---
+import Theme from "./Theme.astro"
+import LanguageSelector from "./LanguageSelector.astro"
+import Button from "./Button.astro"
+import { Image } from "astro:assets"
+import Logo from "../assets/logo.png"
+---
+
+<header class="header">
+	<a href="./" class="logo-container">
+		<div class="logo">
+			<Image class="logo-img" src={Logo} alt="Hola" />
+			<h1 class="title">Brian Exequiel</h1>
+		</div>
+	</a>
+	<div class="label">
+		<label class="burger" for="burger">
+			<input type="checkbox" id="burger" />
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+	</div>
+	<div class="nav-container">
+		<nav class="nav">
+			<ul class="nav-list">
+				<li class="nav-link"><a href="#about">Sobre mi</a></li>
+				<li class="nav-link"><a href="#projects">Proyectos</a></li>
+				<li class="nav-link"><a href="#blog">Blog</a></li>
+				<li class="nav-link"><a href="#contact">Contacto</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="nav-container2">
+		<div>
+			<Theme class="theme-switch" />
+			<LanguageSelector />
+			<div class="button">
+				<Button variant="primary" title="Contactame" href="#contacto" />
+			</div>
+		</div>
+	</div>
+</header>
+
+<style>
+	.header {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: auto auto auto;
+		gap: 0px 0px;
+		grid-template-areas:
+			"logo-container label"
+			"nav nav"
+			"nav2 nav2";
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 100;
+		background-color: var(--color-bg);
+	}
+
+	.logo-container {
+		grid-area: logo-container;
+		display: flex;
+		justify-content: flex-start;
+		height: 6.25rem;
+		z-index: 100;
+		cursor: pointer;
+	}
+
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		max-width: 100%;
+		padding-left: 1rem;
+	}
+	.logo-img {
+		width: 1.8rem;
+	}
+	.title {
+		font-size: 1.5rem;
+		font-weight: 600;
+		white-space: nowrap;
+		color: var(--black);
+	}
+	.label {
+		height: 6.25rem;
+		grid-area: label;
+		display: flex; /* Añade flexbox */
+		justify-content: flex-end; /* Alinea el contenido a la derecha */
+		align-items: center; /* Centra verticalmente */
+		padding-right: 1rem; /* Espacio del borde derecho */
+	}
+
+	.burger {
+		position: relative;
+		width: 40px;
+		height: 30px;
+		background: transparent;
+		cursor: pointer;
+		display: flex; /* Cambiado a flex */
+		flex-direction: column; /* Apila las líneas verticalmente */
+		justify-content: space-between; /* Distribuye el espacio entre líneas */
+		align-items: flex-end; /* Alinea las líneas a la derecha */
+	}
+
+	.burger input {
+		display: none;
+	}
+
+	.burger span {
+		display: block;
+		position: absolute;
+		height: 4px;
+		width: 100%;
+		background: var(--black);
+		border-radius: 9px;
+		opacity: 1;
+		left: 0;
+		transform: rotate(0deg);
+		transition: 0.25s ease-in-out;
+	}
+
+	.burger span:nth-of-type(1) {
+		top: 0px;
+		transform-origin: left center;
+	}
+
+	.burger span:nth-of-type(2) {
+		top: 50%;
+		transform: translateY(-50%);
+		transform-origin: left center;
+	}
+
+	.burger span:nth-of-type(3) {
+		top: 100%;
+		transform-origin: left center;
+		transform: translateY(-100%);
+	}
+
+	.burger input:checked ~ span:nth-of-type(1) {
+		transform: rotate(45deg);
+		top: 0px;
+		left: 5px;
+	}
+
+	.burger input:checked ~ span:nth-of-type(2) {
+		width: 0%;
+		opacity: 0;
+	}
+
+	.burger input:checked ~ span:nth-of-type(3) {
+		transform: rotate(-45deg);
+		top: 28px;
+		left: 5px;
+	}
+
+	.nav-container {
+		grid-area: nav;
+		height: calc(55vh - 6.25rem);
+		display: flex; /* Añadido */
+		display: none;
+		z-index: 100;
+	}
+
+	.nav {
+		width: 100%; /* Añadido */
+		display: flex;
+		justify-content: center;
+	}
+
+	.nav-list {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		gap: 1rem;
+		align-self: flex-end; /* Alinea al fondo */
+		padding: 0;
+		list-style: none;
+		cursor: pointer;
+	}
+
+	.nav-container2 {
+		grid-area: nav2;
+		width: 100%;
+		height: calc(60vh - 6.25rem);
+		display: flex;
+		padding-top: 1rem;
+		display: none;
+		z-index: 100;
+	}
+	.nav-container2 div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 auto;
+		align-self: flex-start;
+		gap: 1rem;
+	}
+	.nav-link {
+		position: relative;
+		color: var(--black);
+	}
+
+	.nav-link::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		width: 0;
+		height: 2px;
+		background: var(--gradient);
+		transition: width 0.3s ease;
+	}
+
+	.nav-link:hover::after {
+		width: 100%;
+	}
+	.button {
+		display: none;
+	}
+	.active {
+		display: flex;
+	}
+	@media screen and (min-width: 1124px) {
+		.header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			max-width: 1200px;
+			margin: 0 auto;
+			left: 50%;
+			transform: translate(-50%, 0);
+			width: 100%;
+			position: fixed;
+			z-index: 100;
+		}
+
+		.header::before {
+			content: "";
+			width: 100vw;
+			height: 100px;
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+			position: fixed;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: -1;
+			background: var(--color-bg);
+			top: 0;
+		}
+
+		.logo-container {
+			background: transparent;
+		}
+
+		.nav-container {
+			display: block;
+			height: 6.25rem;
+			flex-grow: 1;
+		}
+
+		.nav-list {
+			flex-direction: row;
+			height: 6.25rem;
+			align-items: center;
+		}
+
+		.nav-container2 {
+			display: flex;
+			height: 6.25rem;
+			width: auto;
+			padding-top: 0;
+			padding-right: 1rem;
+			align-items: center;
+		}
+
+		.nav-container2 div {
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-end;
+			height: 100%;
+		}
+
+		.label {
+			display: none;
+		}
+		.button {
+			display: none;
+		}
+	}
+</style>
+
+<script is:inline>
+	const burger = document.querySelector("#burger")
+	const containerNav = document.querySelector(".nav-container")
+	const containerNav2 = document.querySelector(".nav-container2")
+	const navLinks = document.querySelectorAll(".nav-link a")
+	const burgerCheckbox = document.getElementById("burger")
+
+	// Función para cerrar el menú
+	function closeMenu() {
+		containerNav.classList.remove("active")
+		containerNav2.classList.remove("active")
+		burgerCheckbox.checked = false
+	}
+
+	// Evento para el botón hamburguesa
+	burger.addEventListener("click", () => {
+		containerNav.classList.toggle("active")
+		containerNav2.classList.toggle("active")
+	})
+
+	// Eventos para los enlaces de navegación
+	navLinks.forEach((link) => {
+		// Saltamos el enlace de Blog como pediste
+		if (link.getAttribute("href") !== "#blog") {
+			link.addEventListener("click", closeMenu)
+		}
+	})
+</script>
