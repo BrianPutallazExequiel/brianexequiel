@@ -1,0 +1,143 @@
+---
+import { Image } from "astro:assets";
+import Profile from "../assets/profile.png";
+import Button from "../components/Button.astro";
+const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="#FF7C03" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5l5-5m-5-7v12"/></svg>`
+const pdfPath = "/public/assets/cv-brian.pdf"
+---
+
+<section class="container">
+    <div class="contenido">
+        <div class="texto">
+            <h2 class="title-1">👋 Soy Brian Exequiel</h2>
+            <h3 class="title-2">Desarrollador Web</h3>
+            <p>Transformo ideas en negocios digitales únicos, integrando desarrollo, diseño y marketing para crear experiencias que destacan.</p>
+            <div class="botones">
+                <Button 
+                    variant="primary" 
+                    title="Contactame"
+                    href="#contacto"
+                />
+                <Button
+                        variant="secondary"
+                        title="Descargar CV"
+                        download
+                        href="/pdf/cv-brian.pdf"
+                        downloadName="Curriculum-Brian-Putallaz.pdf"
+                        iconRight={ downloadIcon }
+                />
+            </div>
+        </div>
+        <div class="imagen">
+            <Image src={ Profile } alt="Imagen descriptiva">
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            height: calc(100vh - 100px);
+            margin: 0 auto;
+            padding: 0 20px;
+            margin-top: 6.25rem;
+        }
+
+        .contenido {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            width: 100%;
+        }
+
+        .texto {
+        }
+
+        .imagen {
+            text-align: center;
+        }
+
+        .imagen img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            min-width: 410px;
+            border-radius: 8px;
+        }
+
+        .title-1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--color-title);
+        }
+
+        .title-2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--color-title);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--color-text);
+        }
+
+        .botones {
+            display: flex;
+            gap: 15px;
+        }
+
+        @media (max-width: 990px) {
+            .container {
+                height: auto;
+            }
+            .contenido {
+                flex-direction: column;
+                padding-top: 2rem;
+            }
+
+            .texto {
+                order: 1;
+                text-align: center;
+            }
+
+            .imagen {
+                order: 2;
+            }
+
+            .title-1 {
+            font-size: 2rem;
+        }
+
+        .title-2 {
+            font-size: 2.5rem;
+        }
+
+            .botones {
+                align-items: center;
+                flex-direction: column;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .title-1 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            }
+
+            .title-2 {
+            font-size: 1.9rem;
+            font-weight: 900;
+            }
+
+            .imagen img {
+                width: 100%;
+                min-width: 0px;
+            }
+        }
+</style>

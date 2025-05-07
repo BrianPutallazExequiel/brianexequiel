@@ -218,4 +218,5 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: var(--tipo-principal);
+    background-color: var(--color-bg);
 }
