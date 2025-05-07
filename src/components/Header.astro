@@ -4,6 +4,10 @@ import LanguageSelector from "./LanguageSelector.astro"
 import Button from "./Button.astro"
 import { Image } from "astro:assets"
 import Logo from "../assets/logo.png"
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="header">
@@ -24,8 +28,9 @@ import Logo from "../assets/logo.png"
 	<div class="nav-container">
 		<nav class="nav">
 			<ul class="nav-list">
-				<li class="nav-link"><a href="#about">Sobre mi</a></li>
-				<li class="nav-link"><a href="#projects">Proyectos</a></li>
+				<li class="nav-link"><a href="#about">
+					{t('about')}</a></li>
+				<li class="nav-link"><a href="#projects">{t('projects')}</a></li>
 				<li class="nav-link"><a href="#blog">Blog</a></li>
 				<li class="nav-link"><a href="#contact">Contacto</a></li>
 			</ul>
