@@ -17,6 +17,7 @@ export const ui = {
         'about': 'About me',
         'projects': 'Projects',
         'contact': 'Contact',
+        'blog': 'Blog',
         'contact.button': 'Contact me'
     },
 } as const;
