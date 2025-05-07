@@ -31,8 +31,8 @@ const t = useTranslations(lang);
 				<li class="nav-link"><a href="#about">
 					{t('about')}</a></li>
 				<li class="nav-link"><a href="#projects">{t('projects')}</a></li>
-				<li class="nav-link"><a href="#blog">Blog</a></li>
-				<li class="nav-link"><a href="#contact">Contacto</a></li>
+				<li class="nav-link"><a href="#blog">{t('blog')}</a></li>
+				<li class="nav-link"><a href="#contact">{t('contact')}</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -41,7 +41,7 @@ const t = useTranslations(lang);
 			<Theme class="theme-switch" />
 			<LanguageSelector />
 			<div class="button">
-				<Button variant="primary" title="Contactame" href="#contacto" />
+				<Button variant="primary" title={t('contact.button')} href="#contacto" />
 			</div>
 		</div>
 	</div>
