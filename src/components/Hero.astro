@@ -4,23 +4,27 @@ import Profile from "../assets/profile.png";
 import Button from "../components/Button.astro";
 const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="#FF7C03" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5l5-5m-5-7v12"/></svg>`
 const pdfPath = "/public/assets/cv-brian.pdf"
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="container">
     <div class="contenido">
         <div class="texto">
-            <h2 class="title-1">👋 Soy Brian Exequiel</h2>
-            <h3 class="title-2">Desarrollador Web</h3>
-            <p>Transformo ideas en negocios digitales únicos, integrando desarrollo, diseño y marketing para crear experiencias que destacan.</p>
+            <h2 class="title-1">{t('title.presentation')}</h2>
+            <h3 class="title-2">{t('title.profesion')}</h3>
+            <p>{t('description.hero')}</p>
             <div class="botones">
                 <Button 
                     variant="primary" 
-                    title="Contactame"
+                    title={t('contact.button')}
                     href="#contacto"
                 />
                 <Button
                         variant="secondary"
-                        title="Descargar CV"
+                        title={t('download.button')}
                         download
                         href="/pdf/cv-brian.pdf"
                         downloadName="Curriculum-Brian-Putallaz.pdf"
