@@ -1,0 +1,128 @@
+---
+import logo1 from "../assets/logos/logo1.png"
+import logo2 from "../assets/logos/logo2.png"
+import logo3 from "../assets/logos/logo3.png"
+import logo4 from "../assets/logos/logo4.png"
+import logo5 from "../assets/logos/logo5.png"
+import logo6 from "../assets/logos/logo6.png"
+
+const logos = [logo1, logo2, logo3, logo4, logo5, logo6]
+---
+
+<section class="container">
+    <p class="title">Conocimientos avalados por:</p>
+    <div class="slider-wrapper">
+        <div class="slide-track">
+            {
+                logos.concat(logos).map((logo, i) => (
+                    <div class="slide" key={i}>
+                        <img
+                            src={logo.src}
+                            alt="Brand logo"
+                            loading="lazy"
+                            class="logo"
+                        />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .title {
+        text-align: center;
+        color: var(--color-text);
+        font-size: 0.9rem;
+        margin-top: 2rem;
+    }
+
+    .slider-wrapper {
+        overflow: hidden;
+        width: 100%;
+        padding: 2rem 0;
+        background: linear-gradient(
+  to right,
+  rgba(102, 4, 253, 0.6),
+  rgba(253, 0, 60, 0.6),
+  rgba(253, 186, 1, 0.6)
+);
+        position: absolute;
+        width: 100vw;
+        left: 0;
+        top: calc(100vh + 5rem);
+    }
+
+    .slide-track {
+        display: flex;
+        width: max-content;
+        animation: scroll 25s linear infinite;
+        align-items: center;
+        gap: 10rem;
+    }
+
+    .slide {
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 120px;
+        height: 80px;
+    }
+
+    .slide img {
+        max-height: 60px;
+        max-width: 100%;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+    }
+
+    .slide img:hover {
+        filter: grayscale(0%);
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @media (max-width: 990px) {
+        .slider-wrapper {
+            top: calc(100vh + 3rem);
+        }
+
+        .title {
+        margin-top: 10rem;
+    }
+        .slide-track {
+            gap: 2rem;
+        }
+
+        .slide {
+            min-width: 100px;
+            height: 60px;
+        }
+
+        .slide img {
+            max-height: 50px;
+        }
+    }
+    @media (max-width: 500px) {
+        .title {
+        margin-top: 5rem;
+        }
+        .slider-wrapper {
+            top: calc(100vh + 15rem);
+        }
+    }
+    @media (max-width: 400px) {
+        .title {
+        margin-top: 3rem;
+        }
+    }
+</style>
