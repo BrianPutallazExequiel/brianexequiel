@@ -1,47 +1,79 @@
-# Astro Starter Kit: Minimal
+<h1 align="center">🚀 Brian Exequiel – Portfolio Profesional</h1>
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+<p align="center">
+  <img src="https://img.shields.io/badge/UX/UI-Design-blueviolet?style=flat-square" />
+  <img src="https://img.shields.io/badge/Fullstack-Developer-brightgreen?style=flat-square" />
+  <img src="https://img.shields.io/badge/Freelancer-Available-orange?style=flat-square" />
+</p>
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+<p align="center">
+  <a href="https://brianexequiel.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/🌐-Visit Portfolio-000?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+  <a href="https://github.com/BrianPutallazExequiel" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-BrianPutallazExequiel-181717?style=for-the-badge&logo=github" />
+  </a>
+  <a href="https://www.linkedin.com/in/brian-exequiel-putallaz/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-Brian_Exequiel-0A66C2?style=for-the-badge&logo=linkedin" />
+  </a>
+  <a href="mailto:brianexequielputallaz@gmail.com">
+    <img src="https://img.shields.io/badge/Email-Contact_me-red?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+</p>
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## 😃 ¿Quién soy?
 
-Inside of your Astro project, you'll see the following folders and files:
+¡Hola! 👋 Soy **Brian**, un apasionado desarrollador web **full stack** y diseñador **UX/UI** con una sólida experiencia en la creación de experiencias digitales cautivadoras. 💻✨
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Llevo 1 año en la industria, trabajando tanto individualmente como en equipo. Fusiono mis habilidades técnicas con diseño centrado en el usuario para crear soluciones visualmente atractivas y altamente funcionales.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Me especializo en comprender necesidades de los usuarios y traducirlas en interfaces intuitivas. Desde la planificación hasta la implementación, utilizo tecnologías modernas y metodologías ágiles para alcanzar la excelencia en cada proyecto.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 💯 ¿Por qué elegirme?
 
-## 🧞 Commands
+✅ **Experiencia integral:** desarrollo web + diseño UX/UI  
+✅ **Innovación constante:** actualizo mis habilidades con las últimas tecnologías  
+✅ **Colaboración efectiva:** relaciones sólidas con clientes y equipos  
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## 🌐 ¿A quiénes ayudo?
 
-## 👀 Want to learn more?
+- Emprendedores y startups 🧑‍💻  
+- Empresas que desean mejorar su presencia digital 📈  
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+## 🛠️ ¿Cómo los ayudo?
+
+- 🔧 **Desarrollo Web Full Stack:** HTML, CSS, JavaScript, React, Node.js, MySQL, MongoDB  
+- 🎨 **Diseño UX/UI:** interfaces centradas en el usuario, usabilidad y experiencia
+
+---
+
+## ✨ Capturas del sitio
+
+<p align="center">
+  <img src="https://brianexequiel.vercel.app/preview-hero.jpg" width="80%" alt="Hero Section Preview" />
+  <br/>
+  <em>Vista previa de la sección hero (puedes subir tu imagen a tu repo o usar Vercel, Cloudinary, etc.)</em>
+</p>
+
+---
+
+## 📦 Instalación y uso local
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/BrianPutallazExequiel/brianexequiel.git
+cd brianexequiel
+
+# Instalar dependencias
+npm install
+
+# Iniciar servidor local
+npm run dev
