@@ -1,45 +1,45 @@
 ---
-import { Image } from "astro:assets";
-import Profile from "../assets/profile.png";
-import Button from "../components/Button.astro";
+import { Image } from "astro:assets"
+import Profile from "../assets/profile.png"
+import Button from "../components/Button.astro"
 const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="#FF7C03" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5l5-5m-5-7v12"/></svg>`
 const pdfPath = "/public/assets/cv-brian.pdf"
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils"
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
-
+<canvas id="aestheticCanvas"></canvas>
 <section class="container">
     <div class="contenido">
         <div class="texto">
-            <h2 class="title-1">{t('title.presentation')}</h2>
-            <h3 class="title-2">{t('title.profesion')}</h3>
-            <p>{t('description.hero')}</p>
+            <h2 class="title-1">{t("title.presentation")}</h2>
+            <h3 class="title-2">{t("title.profesion")}</h3>
+            <p>{t("description.hero")}</p>
             <div class="botones">
-                <Button 
-                    variant="primary" 
-                    title={t('contact.button')}
+                <Button
+                    variant="primary"
+                    title={t("contact.button")}
                     href="#contacto"
                 />
                 <Button
-                        variant="secondary"
-                        title={t('download.button')}
-                        download
-                        href="/pdf/cv-brian.pdf"
-                        downloadName="Curriculum-Brian-Putallaz.pdf"
-                        iconRight={ downloadIcon }
+                    variant="secondary"
+                    title={t("download.button")}
+                    download
+                    href="/pdf/cv-brian.pdf"
+                    downloadName="Curriculum-Brian-Putallaz.pdf"
+                    iconRight={downloadIcon}
                 />
             </div>
         </div>
         <div class="imagen">
-            <Image src={ Profile } alt="Imagen descriptiva">
+            <Image src={Profile} alt="Imagen descriptiva" />
         </div>
     </div>
-</section>
 
-<style>
-    .container {
+    <style>
+        .container {
+            position: relative; /* NUEVO */
             display: flex;
             justify-content: space-between;
             max-width: 1200px;
@@ -47,6 +47,16 @@ const t = useTranslations(lang);
             margin: 0 auto;
             padding: 0 20px;
             margin-top: 6.25rem;
+        }
+        canvas#aestheticCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            background: linear-gradient(to top, rgb(255, 244, 223), var(--bg-color));
         }
 
         .contenido {
@@ -99,6 +109,9 @@ const t = useTranslations(lang);
             .container {
                 height: auto;
             }
+            canvas#aestheticCanvas {
+                height: 100vh;
+            }
             .contenido {
                 flex-direction: column;
                 padding-top: 2rem;
@@ -114,12 +127,12 @@ const t = useTranslations(lang);
             }
 
             .title-1 {
-            font-size: 2rem;
-        }
+                font-size: 2rem;
+            }
 
-        .title-2 {
-            font-size: 2.5rem;
-        }
+            .title-2 {
+                font-size: 2.5rem;
+            }
 
             .botones {
                 align-items: center;
@@ -130,13 +143,13 @@ const t = useTranslations(lang);
         }
         @media (max-width: 480px) {
             .title-1 {
-            font-size: 1.6rem;
-            font-weight: 900;
+                font-size: 1.6rem;
+                font-weight: 900;
             }
 
             .title-2 {
-            font-size: 1.9rem;
-            font-weight: 900;
+                font-size: 1.9rem;
+                font-weight: 900;
             }
 
             .imagen img {
@@ -144,4 +157,52 @@ const t = useTranslations(lang);
                 min-width: 0px;
             }
         }
-</style>
+    </style>
+</section>
+
+<script is:inline>
+    const canvas = document.getElementById("aestheticCanvas")
+    const ctx = canvas.getContext("2d")
+
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    let stars = []
+    const starCount = 50
+
+    for (let i = 0; i < starCount; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 3 + 1,
+            alpha: Math.random(),
+            delta:
+                (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? -1 : 1),
+        })
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+        for (let star of stars) {
+            ctx.beginPath()
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2)
+            ctx.fillStyle = `rgba(255, 189, 128, ${star.alpha})`
+            ctx.shadowBlur = 10
+            ctx.shadowColor = "#bb86fc"
+            ctx.fill()
+
+            star.alpha += star.delta
+            if (star.alpha <= 0 || star.alpha >= 1) star.delta *= -1
+        }
+
+        requestAnimationFrame(draw)
+    }
+
+    draw()
+
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+    })
+</script>
