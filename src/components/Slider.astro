@@ -7,10 +7,14 @@ import logo5 from "../assets/logos/logo5.png"
 import logo6 from "../assets/logos/logo6.png"
 
 const logos = [logo1, logo2, logo3, logo4, logo5, logo6]
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="container">
-    <p class="title">Conocimientos avalados por:</p>
+    <p class="title">{t('title.slider')}</p>
     <div class="slider-wrapper">
         <div class="slide-track">
             {
@@ -102,6 +106,9 @@ const logos = [logo1, logo2, logo3, logo4, logo5, logo6]
 
     /* Responsive */
     @media (max-width: 990px) {
+        .container {
+            margin-top: 2rem;
+        }
         .slide-track {
             gap: 5rem;
         }
