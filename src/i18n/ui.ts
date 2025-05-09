@@ -29,7 +29,14 @@ export const ui = {
         'project.description-03': 'Landing page diseñada para Aerofly, una empresa dedicada a la venta de pasajes aéreos a destinos internacionales. El sitio ofrece una experiencia intuitiva para descubrir vuelos, promociones y gestionar reservas de forma ágil desde cualquier dispositivo.',
         'project.technologies': 'Técnologias utilizadas:',
         'project.button.web': 'Ir al sitio Web',
-        'project.button.github': 'Ver en Github'
+        'project.button.github': 'Ver en Github',
+        'contact.title': 'Contacto',
+        'contact.name': 'Nombre:',
+        'contact.name.placeholder': 'Escribe tu nombre',
+        'contact.email.placeholder': 'Escribe tu correo electrónico',
+        'contact.message': 'Mensaje',
+        'contact.message.placeholder': 'Escribe el mensaje que quieres dejar...',
+        'contact.button.form': 'Enviar mensaje'
     },
     en: {
         'about': 'About me',
@@ -54,6 +61,13 @@ export const ui = {
         'project.description-03': 'Landing page designed for Aerofly, a company dedicated to selling airline tickets to international destinations. The site offers an intuitive experience to discover flights, promotions, and manage bookings quickly from any device.',
         'project.technologies': 'Technologies used:',
         'project.button.web': 'Go to the website',
-        'project.button.github': 'View on Github'
+        'project.button.github': 'View on Github',
+        'contact.title': 'Contact',
+        'contact.name': 'Name:',
+        'contact.name.placeholder': 'Write your name',
+        'contact.email.placeholder': 'Enter your email address',
+        'contact.message': 'Message',
+        'contact.message.placeholder': 'Write the message you want to leave...',
+        'contact.button.form': 'Send message'
     },
 } as const;
