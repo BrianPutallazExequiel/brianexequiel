@@ -1,0 +1,111 @@
+---
+import { Image } from "astro:assets"
+import Logo from "../assets/logo.png"
+import LinkedinIcon from "../assets/icon-linkedin.svg"
+import GithubIcon from "../assets/icon-github.svg"
+import GmailIcon from "../assets/icon-gmail.svg"
+import { getLangFromUrl, useTranslations } from "../i18n/utils"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<footer>
+    <div class="container-top">
+        <div class="container-logo">
+            <div class="logo-img">
+                <Image src={Logo} alt="" />
+            </div>
+            <span class="logo-text">Brian Exequiel</span>
+        </div>
+        <div class="container-links">
+            <p class="text-icons">{t("footer.links")}</p>
+            <a
+                href="https://www.linkedin.com/in/brian-exequiel-putallaz/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Image src={LinkedinIcon} alt="Icono de Linkedin" />
+            </a>
+            <a
+                href="https://github.com/BrianPutallazExequiel"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Image src={GithubIcon} alt="Icono de Github" />
+            </a>
+            <a
+                href="mailto:brianexequielputallaz@gmail.com?subject=Consulta&body=Hola%20Brian%20..."
+                aria-label="Enviar un correo a Brian"
+            >
+                <Image src={GmailIcon} alt="Icono de Gmail" />
+            </a>
+        </div>
+    </div>
+    <hr />
+    <p class="copyright">© 2025 - Brian Exequiel</p>
+</footer>
+
+<style>
+    .container-top {
+        display: flex;
+        justify-content: space-between;
+        color: var(--color-text);
+    }
+    .container-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.7em;
+    }
+    .logo-img {
+        width: 2em;
+    }
+    .logo-text {
+        display: block;
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+    .container-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+    }
+
+    .text-icons {
+        display: inline;
+    }
+
+    .container-links img {
+        width: 35px;
+        height: 35px;
+        transition: transform 0.3s ease;
+    }
+
+    .container-links img:hover {
+        transform: scale(1.1);
+    }
+    hr {
+        width: 100%;
+        height: 1px;
+        background: #cecece;
+        margin-block: 1em 1.5em;
+    }
+    .copyright {
+        text-align: center;
+        color: var(--color-text);
+    }
+    @media (max-width: 600px) {
+        .logo-img {
+            width: 1.5em;
+        }
+        .logo-text {
+            display: block;
+            font-size: 1em;
+            font-weight: 600;
+        }
+        .text-icons {
+            font-size: 0.7em;
+        }
+    }
+</style>

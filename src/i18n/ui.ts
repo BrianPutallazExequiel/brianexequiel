@@ -36,7 +36,8 @@ export const ui = {
         'contact.email.placeholder': 'Escribe tu correo electrónico',
         'contact.message': 'Mensaje',
         'contact.message.placeholder': 'Escribe el mensaje que quieres dejar...',
-        'contact.button.form': 'Enviar mensaje'
+        'contact.button.form': 'Enviar mensaje',
+        'footer.links': 'Visitame en:'
     },
     en: {
         'about': 'About me',
@@ -68,6 +69,7 @@ export const ui = {
         'contact.email.placeholder': 'Enter your email address',
         'contact.message': 'Message',
         'contact.message.placeholder': 'Write the message you want to leave...',
-        'contact.button.form': 'Send message'
+        'contact.button.form': 'Send message',
+        'footer.links': 'Visit me at:'
     },
 } as const;

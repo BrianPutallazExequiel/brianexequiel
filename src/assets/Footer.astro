@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets"
+import Logo from "@/assets/logo.png"
+import LinkedinIcon from "@/assets/icon-linkedin.svg"
+import GithubIcon from "@/assets/icon-github.svg"
+import GmailIcon from "@/assets/icon-gmail.svg"
+---
+
+<footer>
+    <div class="container-top">
+        <div class="container-logo">
+            <div class="logo-img">
+                <Image src={Logo} alt="" />
+            </div>
+            <span class="logo-text">Brian Exequiel</span>
+        </div>
+        <div class="container-links">
+            <p class="text-icons">Visitame en:</p>
+            <Image src={LinkedinIcon} alt="Icono de Linkedin" />
+            <Image src={GithubIcon} alt="Icono de Linkedin" />
+            <Image src={GmailIcon} alt="Icono de Linkedin" />
+        </div>
+    </div>
+    <hr />
+    <p class="copyright">© 2025 - Brian Exequiel</p>
+</footer>
+
+<style>
+    .container-top {
+        display: flex;
+        justify-content: space-between;
+    }
+    .container-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.7em;
+    }
+    .logo-img {
+        width: 2em;
+    }
+    .logo-text {
+        display: block;
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+    .container-links {
+        display: flex;
+        align-items: center; /* Alinea verticalmente los elementos */
+        gap: .5em; /* Espacio entre elementos */
+    }
+
+    .text-icons {
+        display: inline;
+    }
+
+    /* Opcional: estilo para los iconos */
+    .container-links img {
+        width: 35px; /* Tamaño consistente para los iconos */
+        height: 35px;
+        transition: transform 0.3s ease;
+    }
+
+    .container-links img:hover {
+        transform: scale(1.1); /* Efecto hover opcional */
+    }
+    hr {
+        width: 100%;
+        height: 1px;
+        background: #cecece;
+        margin-block: 1em 1.5em;
+    }
+    .copyright {
+        text-align: center;
+    }
+    @media (max-width: 600px) {
+        .logo-img {
+            width: 1.5em;
+        }
+        .logo-text {
+        display: block;
+        font-size: 1em;
+        font-weight: 600;
+    }
+    .text-icons{
+        font-size: .7em;
+    }
+    }
+</style>
