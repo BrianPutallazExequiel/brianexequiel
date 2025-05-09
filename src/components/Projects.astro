@@ -1,0 +1,578 @@
+---
+import { Image } from "astro:assets"
+import ProyectImg from "../assets/project-01.png"
+import ProyectImg2 from "../assets/project-02.png"
+import ProyectImg3 from "../assets/project-03.png"
+const IconWeb = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="auto" viewBox="0 0 717 707"><path fill="#fff" d="M0 342v-1C9 225 51 138 124 83C196 27 274 0 359 0c89-1 172 29 246 89c75 59 112 147 112 261v7c0 115-37 201-112 260c-75 60-158 90-247 90h-4c-87-1-167-31-241-91C39 557 1 466 0 342m337-157V27h-24c-5 6-9 13-13 19s-8 12-12 19c-4 6-9 14-12 20c-4 6-7 12-10 19c-6 10-11 20-15 29c-5 9-9 18-12 26c6 4 13 9 21 12c9 3 18 6 27 8c10 2 19 3 27 4c9 1 17 2 23 2m42-158v157c5 0 11 1 17 0c6 0 13-1 19-2c11-2 24-5 34-8c11-4 21-9 28-15c-12-29-25-52-38-74s-28-41-44-57v-1zm-108 9v-1c-7 3-14 8-22 11c-7 3-16 7-23 11q-21 10.5-42 24c-13 9-26 19-37 29c4 4 9 8 13 11s9 7 14 11c4 2 9 5 14 9c5 3 11 7 17 11c8-18 16-37 26-54c10-18 21-35 32-50c1-2 2-4 4-6c1-1 2-4 4-6m306 74v-1c-25-19-47-35-69-45s-44-20-64-28c16 16 30 36 39 55c10 20 20 41 28 61c4-2 9-4 15-8c5-3 12-6 18-9c6-4 11-8 17-12c6-5 12-9 16-13m-17 223h115c0-37-8-72-23-108c-14-35-34-64-59-89v-1c-5 8-12 15-19 20c-8 5-15 9-23 13c-5 3-10 7-15 9c-5 3-12 5-17 8c4 8 8 17 12 25c3 9 8 19 10 28c6 16 10 33 14 50c3 15 5 31 5 45M198 185v-1c-8-4-17-7-24-11c-7-5-14-10-20-14c-6-3-12-7-17-11s-9-8-13-12c-26 25-45 53-57 86c-13 33-22 70-26 110h123c0-28 4-55 11-82c6-28 15-49 23-65m139 147V217c-8 1-18 1-27 0c-10-1-20-4-29-7c-8-2-18-4-26-7c-9-2-18-6-25-10c-6 10-11 22-15 35c-5 12-8 25-11 37c-2 12-3 25-4 36s-2 22-2 31zm42-113v113h148c0-6 0-13-1-21c-2-7-3-16-4-24c-3-12-6-25-10-37c-4-11-8-22-13-31c-2-5-4-11-6-15c-3-5-6-8-8-11c-11 8-26 13-44 17c-17 4-37 8-55 9zM164 365H41c0 17 3 36 8 59c5 24 15 46 26 70c5 12 11 24 17 36c7 11 15 23 23 34c6-4 12-7 17-10c6-3 13-7 19-10c7-3 14-6 22-10c7-3 16-7 25-11c-8-25-17-49-23-76c-7-26-11-52-11-81zm173 117V365H198c0 8 1 20 3 32c1 12 4 25 6 38c4 14 7 28 11 40s8 22 12 31c18-7 36-12 48-15c13-4 25-7 37-8h11c4-1 8-1 11-1m42-117v116c7 1 15 2 23 3c9 1 20 3 29 5l15 3c5 2 11 3 16 4c6 2 12 3 18 5c5 2 10 3 14 5c13-33 21-60 26-83c5-22 7-41 7-57v-1zm296 1v-1H560v6c-1 19-4 41-8 64c-4 22-13 48-25 80c16 8 31 16 43 24s23 17 31 25c17-17 32-40 45-70c13-29 22-59 27-91c1-6 1-12 2-18zM337 670V514c-25 4-46 9-62 13s-28 8-36 12c6 15 12 28 18 40c6 11 13 23 19 33c2 4 6 8 9 13c3 4 5 9 8 13c3 5 6 11 9 17c4 5 7 11 11 15zm42 0h23c9-7 18-17 25-28c8-11 17-24 23-35c7-13 14-25 20-37s11-23 15-31c-11-4-26-8-41-12s-36-8-65-12zm198-82v-1c-2-3-6-7-9-10s-8-7-13-10q-6-4.5-15-9c-9-4.5-14-7-21-11c-4 8-11 22-21 41c-9 19-25 42-45 67c25-4 47-13 67-25c22-11 41-26 57-42m-372-32v-1c-7 4-18 9-29 14c-12 5-25 11-37 19c7 6 14 12 20 16c6 5 13 9 19 13c11 7 24 14 37 20s29 12 49 18c-7-8-12-18-17-26s-11-16-16-24s-9-17-13-25c-5-8-9-16-13-24"/></svg>`
+const IconGithub = `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="auto" viewBox="0 0 24 24"><g fill="none" stroke="#fd003c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M16 22.027v-2.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7a5.44 5.44 0 0 0-1.5-3.75a5.07 5.07 0 0 0-.09-3.77s-1.18-.35-3.91 1.48a13.4 13.4 0 0 0-7 0c-2.73-1.83-3.91-1.48-3.91-1.48A5.07 5.07 0 0 0 5 5.797a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58v2.87"/><path d="M9 20.027c-3 .973-5.5 0-7-3"/></g></svg>`
+import Button from "../components/Button.astro"
+import { getLangFromUrl, useTranslations } from "../i18n/utils"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class="proyects" id="projects">
+    <h2 class="title-proyects">{t("project.title")}</h2>
+    <p class="subtitle-proyects">{t("project.subtitle")}</p>
+    <article class="container-proyects">
+        <div class="container-img">
+            <Image src={ProyectImg} alt="" />
+        </div>
+        <div class="container-text">
+            <h3 class="title-proyect">Solwates Company</h3>
+            <p class="subtitle-proyect">
+                {t("project.description-01")}
+            </p>
+            <span class="techonologies-text">{t("project.technologies")}</span>
+            <div class="container-technologies">
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#E44D26"
+                            d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198l-45.019 12.48z"
+                        >
+                        </path><path
+                            fill="#F16529"
+                            d="m64 116.8l36.378-10.086l8.559-95.878H64z"
+                        >
+                        </path><path
+                            fill="#EBEBEB"
+                            d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692l3.382 37.927H64zm0 35.743l-.061.017l-15.327-4.14l-.979-10.975H33.816l1.928 21.609l28.193 7.826l.063-.017z"
+                        >
+                        </path><path
+                            fill="#fff"
+                            d="M63.952 52.455v13.763h16.947l-1.597 17.849l-15.35 4.143v14.319l28.215-7.82l.207-2.325l3.234-36.233l.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092l.628-6.978l.329-3.692z"
+                        >
+                        </path>
+                    </svg>
+                    <span>HTML5</span>
+                </div>
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#1572B6"
+                            d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754l-45.243 12.543z"
+                        >
+                        </path><path
+                            fill="#33A9DC"
+                            d="m64.001 117.062l36.559-10.136l8.601-96.354h-45.16z"
+                        >
+                        </path><path
+                            fill="#fff"
+                            d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711l-3.4 38.114h-30.95z"
+                        >
+                        </path><path
+                            fill="#EBEBEB"
+                            d="m64.083 87.349l-.061.018l-15.403-4.159l-.985-11.031H33.752l1.937 21.717l28.331 7.863l.063-.018z"
+                        >
+                        </path><path
+                            fill="#fff"
+                            d="m81.127 64.675l-1.666 18.522l-15.426 4.164v14.39l28.354-7.858l.208-2.337l2.406-26.881z"
+                        >
+                        </path><path
+                            fill="#EBEBEB"
+                            d="M64.048 23.435v13.831H30.64l-.277-3.108l-.63-7.012l-.331-3.711zm-.047 27.996v13.831H48.792l-.277-3.108l-.631-7.012l-.33-3.711z"
+                        >
+                        </path>
+                    </svg>
+                    <span>CSS3</span>
+                </div>
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#F0DB4F"
+                            d="M1.408 1.408h125.184v125.185H1.408z"
+                        >
+                        </path><path
+                            fill="#323330"
+                            d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981c-3.832-1.761-8.104-3.022-9.377-5.926c-.452-1.69-.512-2.642-.226-3.665c.821-3.32 4.784-4.355 7.925-3.403c2.023.678 3.938 2.237 5.093 4.724c5.402-3.498 5.391-3.475 9.163-5.879c-1.381-2.141-2.118-3.129-3.022-4.045c-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235c-5.926 6.724-4.236 18.492 2.975 23.335c7.104 5.332 17.54 6.545 18.873 11.531c1.297 6.104-4.486 8.08-10.234 7.378c-4.236-.881-6.592-3.034-9.139-6.949c-4.688 2.713-4.688 2.713-9.508 5.485c1.143 2.499 2.344 3.63 4.26 5.795c9.068 9.198 31.76 8.746 35.83-5.176c.165-.478 1.261-3.666.38-8.581M69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149c-1.713 3.558-6.152 3.117-8.175 2.427c-2.059-1.012-3.106-2.451-4.319-4.485c-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901c4.462 2.678 10.459 3.499 16.731 2.059c4.082-1.189 7.604-3.652 9.448-7.401c2.666-4.915 2.094-10.864 2.07-17.444c.06-10.735.001-21.468.001-32.237"
+                        >
+                        </path>
+                    </svg>
+                    <span>Javascript</span>
+                </div>
+            </div>
+            <div class="container-buttons">
+                <Button
+                    variant="primary"
+                    title={t("project.button.web")}
+                    href="https://brianputallazexequiel.github.io/solwates/"
+                    iconLeft={IconWeb}
+                />
+                <Button
+                    variant="secondary"
+                    title={t("project.button.github")}
+                    href="https://github.com/BrianPutallazExequiel/solwates"
+                    iconLeft={IconGithub}
+                />
+            </div>
+        </div>
+    </article>
+    <article class="container-proyects">
+        <div class="container-img">
+            <Image src={ProyectImg2} alt="" />
+        </div>
+        <div class="container-text">
+            <h3 class="title-proyect">DecoArte</h3>
+            <p class="subtitle-proyect">
+                {t("project.description-02")}
+            </p>
+            <span class="techonologies-text">{t("project.technologies")}</span>
+            <div class="container-technologies">
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#E44D26"
+                            d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198l-45.019 12.48z"
+                        >
+                        </path><path
+                            fill="#F16529"
+                            d="m64 116.8l36.378-10.086l8.559-95.878H64z"
+                        >
+                        </path><path
+                            fill="#EBEBEB"
+                            d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692l3.382 37.927H64zm0 35.743l-.061.017l-15.327-4.14l-.979-10.975H33.816l1.928 21.609l28.193 7.826l.063-.017z"
+                        >
+                        </path><path
+                            fill="#fff"
+                            d="M63.952 52.455v13.763h16.947l-1.597 17.849l-15.35 4.143v14.319l28.215-7.82l.207-2.325l3.234-36.233l.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092l.628-6.978l.329-3.692z"
+                        >
+                        </path>
+                    </svg>
+                    <span>HTML5</span>
+                </div>
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#1572B6"
+                            d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754l-45.243 12.543z"
+                        >
+                        </path><path
+                            fill="#33A9DC"
+                            d="m64.001 117.062l36.559-10.136l8.601-96.354h-45.16z"
+                        >
+                        </path><path
+                            fill="#fff"
+                            d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711l-3.4 38.114h-30.95z"
+                        >
+                        </path><path
+                            fill="#EBEBEB"
+                            d="m64.083 87.349l-.061.018l-15.403-4.159l-.985-11.031H33.752l1.937 21.717l28.331 7.863l.063-.018z"
+                        >
+                        </path><path
+                            fill="#fff"
+                            d="m81.127 64.675l-1.666 18.522l-15.426 4.164v14.39l28.354-7.858l.208-2.337l2.406-26.881z"
+                        >
+                        </path><path
+                            fill="#EBEBEB"
+                            d="M64.048 23.435v13.831H30.64l-.277-3.108l-.63-7.012l-.331-3.711zm-.047 27.996v13.831H48.792l-.277-3.108l-.631-7.012l-.33-3.711z"
+                        >
+                        </path>
+                    </svg>
+                    <span>CSS3</span>
+                </div>
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#F0DB4F"
+                            d="M1.408 1.408h125.184v125.185H1.408z"
+                        >
+                        </path><path
+                            fill="#323330"
+                            d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981c-3.832-1.761-8.104-3.022-9.377-5.926c-.452-1.69-.512-2.642-.226-3.665c.821-3.32 4.784-4.355 7.925-3.403c2.023.678 3.938 2.237 5.093 4.724c5.402-3.498 5.391-3.475 9.163-5.879c-1.381-2.141-2.118-3.129-3.022-4.045c-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235c-5.926 6.724-4.236 18.492 2.975 23.335c7.104 5.332 17.54 6.545 18.873 11.531c1.297 6.104-4.486 8.08-10.234 7.378c-4.236-.881-6.592-3.034-9.139-6.949c-4.688 2.713-4.688 2.713-9.508 5.485c1.143 2.499 2.344 3.63 4.26 5.795c9.068 9.198 31.76 8.746 35.83-5.176c.165-.478 1.261-3.666.38-8.581M69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149c-1.713 3.558-6.152 3.117-8.175 2.427c-2.059-1.012-3.106-2.451-4.319-4.485c-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901c4.462 2.678 10.459 3.499 16.731 2.059c4.082-1.189 7.604-3.652 9.448-7.401c2.666-4.915 2.094-10.864 2.07-17.444c.06-10.735.001-21.468.001-32.237"
+                        >
+                        </path>
+                    </svg>
+                    <span>Javascript</span>
+                </div>
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <defs>
+                            <linearGradient
+                                id="IconifyId196b3796d0c9f269d10"
+                                x1="882.997"
+                                x2="638.955"
+                                y1="27.113"
+                                y2="866.902"
+                                gradientTransform="scale(.1)"
+                                gradientUnits="userSpaceOnUse"
+                            >
+                                <stop offset="0" stop-color="#000014">
+                                </stop><stop offset="1" stop-color="#150426">
+                                </stop>
+                            </linearGradient><linearGradient
+                                id="IconifyId196b3796d0c9f269d11"
+                                x1="1001.68"
+                                x2="790.326"
+                                y1="652.45"
+                                y2="1094.91"
+                                gradientTransform="scale(.1)"
+                                gradientUnits="userSpaceOnUse"
+                            >
+                                <stop offset="0" stop-color="#ff1639">
+                                </stop><stop
+                                    offset="1"
+                                    stop-color="#ff1639"
+                                    stop-opacity="0"
+                                >
+                                </stop>
+                            </linearGradient>
+                        </defs><path
+                            fill="url(#IconifyId196b3796d0c9f269d10)"
+                            d="M81.504 9.465c.973 1.207 1.469 2.836 2.457 6.09l21.656 71.136a90 90 0 0 0-25.89-8.765L65.629 30.28a1.833 1.833 0 0 0-3.52.004L48.18 77.902a90.1 90.1 0 0 0-26.003 8.778l21.758-71.14c.996-3.25 1.492-4.876 2.464-6.083a8 8 0 0 1 3.243-2.398c1.433-.575 3.136-.575 6.535-.575H71.72c3.402 0 5.105 0 6.543.579a8 8 0 0 1 3.242 2.402Zm0 0"
+                        >
+                        </path><path
+                            fill="#ff5d01"
+                            d="M84.094 90.074c-3.57 3.055-10.696 5.137-18.903 5.137c-10.07 0-18.515-3.137-20.754-7.356c-.8 2.418-.98 5.184-.98 6.954c0 0-.527 8.675 5.508 14.71a5.67 5.67 0 0 1 5.672-5.671c5.37 0 5.367 4.683 5.363 8.488v.336c0 5.773 3.527 10.719 8.543 12.805a11.6 11.6 0 0 1-1.172-5.098c0-5.508 3.23-7.555 6.988-9.938c2.989-1.894 6.309-4 8.594-8.222a15.5 15.5 0 0 0 1.875-7.41a15.6 15.6 0 0 0-.734-4.735m0 0"
+                        >
+                        </path><path
+                            fill="url(#IconifyId196b3796d0c9f269d11)"
+                            d="M84.094 90.074c-3.57 3.055-10.696 5.137-18.903 5.137c-10.07 0-18.515-3.137-20.754-7.356c-.8 2.418-.98 5.184-.98 6.954c0 0-.527 8.675 5.508 14.71a5.67 5.67 0 0 1 5.672-5.671c5.37 0 5.367 4.683 5.363 8.488v.336c0 5.773 3.527 10.719 8.543 12.805a11.6 11.6 0 0 1-1.172-5.098c0-5.508 3.23-7.555 6.988-9.938c2.989-1.894 6.309-4 8.594-8.222a15.5 15.5 0 0 0 1.875-7.41a15.6 15.6 0 0 0-.734-4.735m0 0"
+                        >
+                        </path>
+                    </svg>
+                    <span>Astro</span>
+                </div>
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#38bdf8"
+                            d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597c6.398-8.531 13.867-11.73 22.398-9.597c4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602q-9.6 12.803-22.399 9.602c-4.87-1.215-8.347-4.746-12.207-8.66c-6.27-6.367-13.53-13.738-29.394-13.738M32.004 64c-17.066 0-27.73 8.531-32 25.602Q9.603 76.799 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66c6.274 6.367 13.536 13.738 29.395 13.738c17.066 0 27.73-8.53 32-25.597q-9.6 12.797-22.399 9.597c-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64m0 0"
+                        >
+                        </path>
+                    </svg>
+                    <span>Tailwind</span>
+                </div>
+            </div>
+            <div class="container-buttons">
+                <Button
+                    variant="primary"
+                    title={t("project.button.web")}
+                    href="https://decoartesjb.vercel.app/"
+                    iconLeft={IconWeb}
+                />
+                <Button
+                    variant="secondary"
+                    title={t("project.button.github")}
+                    href="https://github.com/BrianPutallazExequiel/decoarte"
+                    iconLeft={IconGithub}
+                />
+            </div>
+        </div>
+    </article>
+    <article class="container-proyects">
+        <div class="container-img">
+            <Image src={ProyectImg3} alt="" />
+        </div>
+        <div class="container-text">
+            <h3 class="title-proyect">Aerofly</h3>
+            <p class="subtitle-proyect">
+                {t("project.description-03")}
+            </p>
+            <span class="techonologies-text">{t("project.technologies")}</span>
+            <div class="container-technologies">
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#E44D26"
+                            d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198l-45.019 12.48z"
+                        >
+                        </path><path
+                            fill="#F16529"
+                            d="m64 116.8l36.378-10.086l8.559-95.878H64z"
+                        >
+                        </path><path
+                            fill="#EBEBEB"
+                            d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692l3.382 37.927H64zm0 35.743l-.061.017l-15.327-4.14l-.979-10.975H33.816l1.928 21.609l28.193 7.826l.063-.017z"
+                        >
+                        </path><path
+                            fill="#fff"
+                            d="M63.952 52.455v13.763h16.947l-1.597 17.849l-15.35 4.143v14.319l28.215-7.82l.207-2.325l3.234-36.233l.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092l.628-6.978l.329-3.692z"
+                        >
+                        </path>
+                    </svg>
+                    <span>HTML5</span>
+                </div>
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#1572B6"
+                            d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754l-45.243 12.543z"
+                        >
+                        </path><path
+                            fill="#33A9DC"
+                            d="m64.001 117.062l36.559-10.136l8.601-96.354h-45.16z"
+                        >
+                        </path><path
+                            fill="#fff"
+                            d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711l-3.4 38.114h-30.95z"
+                        >
+                        </path><path
+                            fill="#EBEBEB"
+                            d="m64.083 87.349l-.061.018l-15.403-4.159l-.985-11.031H33.752l1.937 21.717l28.331 7.863l.063-.018z"
+                        >
+                        </path><path
+                            fill="#fff"
+                            d="m81.127 64.675l-1.666 18.522l-15.426 4.164v14.39l28.354-7.858l.208-2.337l2.406-26.881z"
+                        >
+                        </path><path
+                            fill="#EBEBEB"
+                            d="M64.048 23.435v13.831H30.64l-.277-3.108l-.63-7.012l-.331-3.711zm-.047 27.996v13.831H48.792l-.277-3.108l-.631-7.012l-.33-3.711z"
+                        >
+                        </path>
+                    </svg>
+                    <span>CSS3</span>
+                </div>
+                <div class="technologie">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                    >
+                        <path
+                            fill="#F0DB4F"
+                            d="M1.408 1.408h125.184v125.185H1.408z"
+                        >
+                        </path><path
+                            fill="#323330"
+                            d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981c-3.832-1.761-8.104-3.022-9.377-5.926c-.452-1.69-.512-2.642-.226-3.665c.821-3.32 4.784-4.355 7.925-3.403c2.023.678 3.938 2.237 5.093 4.724c5.402-3.498 5.391-3.475 9.163-5.879c-1.381-2.141-2.118-3.129-3.022-4.045c-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235c-5.926 6.724-4.236 18.492 2.975 23.335c7.104 5.332 17.54 6.545 18.873 11.531c1.297 6.104-4.486 8.08-10.234 7.378c-4.236-.881-6.592-3.034-9.139-6.949c-4.688 2.713-4.688 2.713-9.508 5.485c1.143 2.499 2.344 3.63 4.26 5.795c9.068 9.198 31.76 8.746 35.83-5.176c.165-.478 1.261-3.666.38-8.581M69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149c-1.713 3.558-6.152 3.117-8.175 2.427c-2.059-1.012-3.106-2.451-4.319-4.485c-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901c4.462 2.678 10.459 3.499 16.731 2.059c4.082-1.189 7.604-3.652 9.448-7.401c2.666-4.915 2.094-10.864 2.07-17.444c.06-10.735.001-21.468.001-32.237"
+                        >
+                        </path>
+                    </svg>
+                    <span>Javascript</span>
+                </div>
+                <div class="technologie technologie-img-react">
+                    <svg
+                        class="technologie-img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 32 32"
+                    >
+                        <path
+                            fill="#00bcd4"
+                            d="M16 12c7.444 0 12 2.59 12 4s-4.556 4-12 4s-12-2.59-12-4s4.556-4 12-4m0-2c-7.732 0-14 2.686-14 6s6.268 6 14 6s14-2.686 14-6s-6.268-6-14-6"
+                        >
+                        </path><path
+                            fill="#00bcd4"
+                            d="M16 14a2 2 0 1 0 2 2a2 2 0 0 0-2-2"
+                        >
+                        </path><path
+                            fill="#00bcd4"
+                            d="M10.458 5.507c2.017 0 5.937 3.177 9.006 8.493c3.722 6.447 3.757 11.687 2.536 12.392a.9.9 0 0 1-.457.1c-2.017 0-5.938-3.176-9.007-8.492C8.814 11.553 8.779 6.313 10 5.608a.9.9 0 0 1 .458-.1m-.001-2A2.87 2.87 0 0 0 9 3.875C6.13 5.532 6.938 12.304 10.804 19c3.284 5.69 7.72 9.493 10.74 9.493A2.87 2.87 0 0 0 23 28.124c2.87-1.656 2.062-8.428-1.804-15.124c-3.284-5.69-7.72-9.493-10.74-9.493Z"
+                        >
+                        </path><path
+                            fill="#00bcd4"
+                            d="M21.543 5.507a.9.9 0 0 1 .457.1c1.221.706 1.186 5.946-2.536 12.393c-3.07 5.316-6.99 8.493-9.007 8.493a.9.9 0 0 1-.457-.1C8.779 25.686 8.814 20.446 12.536 14c3.07-5.316 6.99-8.493 9.007-8.493m0-2c-3.02 0-7.455 3.804-10.74 9.493C6.939 19.696 6.13 26.468 9 28.124a2.87 2.87 0 0 0 1.457.369c3.02 0 7.455-3.804 10.74-9.493C25.061 12.304 25.87 5.532 23 3.876a2.87 2.87 0 0 0-1.457-.369"
+                        >
+                        </path>
+                    </svg>
+                    <span>React</span>
+                </div>
+            </div>
+            <div class="container-buttons">
+                <Button
+                    variant="primary"
+                    title={t("project.button.web")}
+                    href="https://grupo23-cac-frontend.vercel.app/"
+                    iconLeft={IconWeb}
+                />
+                <Button
+                    variant="secondary"
+                    title={t("project.button.github")}
+                    href="https://github.com/BrianPutallazExequiel/Aerofly"
+                    iconLeft={IconGithub}
+                />
+            </div>
+        </div>
+    </article>
+</section>
+
+<style>
+    .proyects {
+        width: 100%;
+        height: auto;
+        scroll-margin-top: 100px;
+        color: var(--color-title);
+    }
+    .title-proyects,
+    .subtitle-proyects {
+        text-align: center;
+    }
+
+    .title-proyects {
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 3rem;
+        padding-top: 1em;
+    }
+
+    .subtitle-proyects {
+        margin-bottom: 2rem;
+        color: var(--color-text);
+    }
+    .container-proyects {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 2em;
+    }
+
+    .container-proyects:not(:last-child) {
+        margin-bottom: 15em;
+    }
+
+    .container-img {
+        width: 50%;
+    }
+
+    .container-text {
+        width: 50%;
+    }
+
+    .title-proyect {
+        font-size: 2em;
+        font-weight: 600;
+        margin-bottom: 1em;
+    }
+
+    .subtitle-proyect {
+        font-size: 1em;
+        margin-bottom: 2em;
+        color: var(--color-text);
+    }
+
+    .techonologies-text {
+        font-weight: 600;
+        margin-bottom: 2em;
+    }
+
+    .container-technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        margin-block: 2em 4em;
+        color: black;
+    }
+
+    .technologie {
+        display: flex;
+        border: 1px solid orangered;
+        background-color: orange;
+        width: auto;
+        border-radius: 50px;
+        gap: 0.5em;
+        padding: 0.2em 0.5em;
+    }
+    .technologie:nth-child(2) {
+        border: 1px solid blue;
+        background-color: rgb(178, 178, 255);
+    }
+
+    .technologie:nth-child(3) {
+        border: 1px solid yellow;
+        background-color: rgb(253, 253, 226);
+    }
+
+    .technologie:nth-child(4) {
+        border: 1px solid orange;
+        background-color: rgb(255, 227, 165);
+    }
+
+    .technologie:nth-child(5) {
+        border: 1px solid lightskyblue;
+        background-color: #e0fdff;
+    }
+
+    div.technologie.technologie-img-react {
+        border: 1px solid lightskyblue;
+        background-color: #e0fdff;
+    }
+
+    .technologie-img {
+        width: 20px;
+    }
+
+    .container-buttons {
+        display: flex;
+        gap: 1em;
+    }
+
+    @media (max-width: 880px) {
+        .title-proyects {
+            margin-top: 2em;
+        }
+        .subtitle-proyects {
+            margin-bottom: 2em;
+        }
+        .container-proyects:not(:last-child) {
+            margin-bottom: 7em;
+        }
+        .container-proyects {
+            flex-direction: column;
+        }
+        .title-proyect {
+            margin-top: 1em;
+        }
+
+        .subtitle-proyect {
+            margin-bottom: 2em;
+        }
+        .container-img {
+            width: 100%;
+        }
+
+        .container-text {
+            width: 100%;
+            text-align: center;
+        }
+        .container-technologies {
+            justify-content: center;
+            margin-bottom: 3em;
+        }
+        .container-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>

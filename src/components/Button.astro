@@ -21,42 +21,49 @@ const {
     download = false,
     href = "",
     downloadName = "",
-    onClick
+    onClick,
 } = Astro.props
 
 if (download && !href) {
-    throw new Error('El prop "href" es requerido cuando "download" es true');
+    throw new Error('El prop "href" es requerido cuando "download" es true')
 }
 ---
 
-<!-- Componente Button con soporte para descargas -->
-{download ? (
-    <a 
-        href={href}
-        download={downloadName || href.split('/').pop()}
-        class={`button ${variant} ${customClass}`}
-        aria-label={`Descargar ${downloadName || 'archivo'}`}
-        rel="noopener noreferrer"
-    >
-        {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
-        {title}
-        {iconRight && <span class="icon icon-right" set:html={iconRight} />}
-    </a>
-) : (
-    <button 
-        class={`button ${variant} ${customClass}`}
-        onClick={onClick}
-        aria-label={title}
-    >
-        {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
-        {title}
-        {iconRight && <span class="icon icon-right" set:html={iconRight} />}
-    </button>
-)}
+<!-- Componente Button con soporte para descargas -->{
+    href ? (
+        <a
+            href={href}
+            download={
+                download ? downloadName || href.split("/").pop() : undefined
+            }
+            class={`button ${variant} ${customClass}`}
+            aria-label={
+                download ? `Descargar ${downloadName || "archivo"}` : title
+            }
+            rel="noopener noreferrer"
+            target="_blank"
+        >
+            {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
+            {title}
+            {iconRight && <span class="icon icon-right" set:html={iconRight} />}
+        </a>
+    ) : (
+        <button
+            class={`button ${variant} ${customClass}`}
+            onClick={onClick}
+            aria-label={title}
+        >
+            {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
+            {title}
+            {iconRight && <span class="icon icon-right" set:html={iconRight} />}
+        </button>
+    )
+}
 
 <style>
     /* Estilos base del botón */
-    .button, a.button {
+    .button,
+    a.button {
         width: 220px;
         padding: 0.75rem 1.5rem;
         border-radius: 0.5rem;
@@ -72,33 +79,44 @@ if (download && !href) {
         gap: 0.5rem;
         text-decoration: none;
     }
-    
-    .button:hover, a.button:hover {
+
+    .button:hover,
+    a.button:hover {
         transform: scale(0.98);
     }
-    
-    .button:active, a.button:active {
+
+    .button:active,
+    a.button:active {
         transform: scale(0.95);
     }
 
     /* Variante primary */
-    .button.primary, a.button.primary {
-        background: linear-gradient(45deg, #6604fd 0%, #fd003c 50%, #fdba01 100%);
+    .button.primary,
+    a.button.primary {
+        background: linear-gradient(
+            45deg,
+            #6604fd 0%,
+            #fd003c 50%,
+            #fdba01 100%
+        );
         color: white;
     }
 
-    .button.primary:hover, a.button.primary:hover {
+    .button.primary:hover,
+    a.button.primary:hover {
         opacity: 0.9;
     }
 
     /* Variante secondary */
-    .button.secondary, a.button.secondary {
+    .button.secondary,
+    a.button.secondary {
         color: #ff003c;
         border: 2px solid transparent;
         position: relative;
     }
 
-    .button.secondary::before, a.button.secondary::before {
+    .button.secondary::before,
+    a.button.secondary::before {
         content: "";
         position: absolute;
         top: 0;
@@ -141,7 +159,8 @@ if (download && !href) {
     }
 
     @media (max-width: 480px) {
-        .button, a.button {
+        .button,
+        a.button {
             min-width: 180px;
             padding: 0.6rem 1.2rem;
             font-size: 0.9rem;
