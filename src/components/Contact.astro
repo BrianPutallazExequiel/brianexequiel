@@ -14,35 +14,54 @@ const t = useTranslations(lang)
     </div>
     <div class="container-text">
         <h3 class="title">{t("contact.title")}</h3>
-        <form class="form">
+        <form
+            class="form"
+            action="https://formsubmit.co/ajax/brianexequielputallaz@gmail.com"
+            method="POST"
+            id="contact-form"
+        >
             <label class="label" for="name">{t("contact.name")}</label>
             <input
                 class="input"
                 type="text"
+                name="name"
                 id="name"
+                required
                 placeholder={t("contact.name.placeholder")}
             />
+
             <label class="label" for="email">Email:</label>
             <input
                 class="input"
                 type="email"
+                name="email"
                 id="email"
+                required
                 placeholder={t("contact.email.placeholder")}
             />
+
             <label class="label" for="message">{t("contact.message")}</label>
             <textarea
                 class="input textarea"
+                name="message"
                 id="message"
+                required
                 placeholder={t("contact.message.placeholder")}
             ></textarea>
+
+            <input type="hidden" name="_captcha" value="false" />
+
+            <div class="button">
+                <button class="btn" type="submit">
+                    {t("contact.button.form")}
+                </button>
+            </div>
         </form>
-        <div class="button">
-            <Button
-                variant="primary"
-                title={t("contact.button.form")}
-                href="#contacto"
-            />
-        </div>
+
+        <!-- MENSAJE DE ÉXITO -->
+<p id="success-message" class="success-message hidden">
+    🎉 Tu mensaje se ha enviado con éxito. A la brevedad me estaré comunicando contigo.
+</p>
     </div>
 </section>
 
@@ -96,6 +115,66 @@ const t = useTranslations(lang)
         height: 200px;
         background-color: var(--bg-color);
     }
+    .button {
+        display: flex;
+        justify-content: center;
+        width: calc(100% + 1em);
+    }
+
+    .btn {
+        width: 100%; /* Cambiado de 50% a auto */
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+            45deg,
+            #6604fd 0%,
+            #fd003c 50%,
+            #fdba01 100%
+        );
+        color: white;
+
+    }
+
+    .btn:hover {
+        transform: scale(0.98);
+    }
+
+    .btn:active {
+        transform: scale(0.95);
+    }
+    .success-message {
+    margin-top: 1.5em;
+    padding: 1em;
+    background-color: #dff0d8;
+    color: #3c763d;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none;
+}
     @media (max-width: 880px) {
         .container-contact {
             padding-inline: 0;
@@ -110,11 +189,35 @@ const t = useTranslations(lang)
         .title {
             text-align: center;
         }
-        .button {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin: 0 auto;
-        }
     }
 </style>
+
+<script>
+    const form = document.getElementById("contact-form");
+    const message = document.getElementById("success-message");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const data = new FormData(form);
+
+        fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: {
+                Accept: "application/json",
+            },
+        }).then((response) => {
+            if (response.ok) {
+                message.classList.remove("hidden");
+                form.reset();
+
+                setTimeout(() => {
+                    message.classList.add("hidden");
+                }, 5000);
+            } else {
+                alert("Ocurrió un error. Intentá de nuevo.");
+            }
+        });
+    });
+</script>
