@@ -1,5 +1,6 @@
 ---
 import '../style/global.css';
+const { title, description, keywords } = Astro.props;
 import { getLangFromUrl } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -9,18 +10,18 @@ const lang = getLangFromUrl(Astro.url);
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>Título</title>
+        <title>{title}</title>
         <style>
             /* Critical CSS: https://midu.dev/como-extraer-el-critical-css-con-puppeteer/ */
         </style>
         <link rel="stylesheet" href="/src/style/global.css" />
         <meta
             name="keywords"
-            content="Palabras, clave, separadas, por , comas"
+            content={keywords}
         />
         <meta
             name="description"
-            content="Descripción breve de menos de 150 palabras"
+            content={description}
         />
         <meta name="author" content="Brian Exequiel" />
         <meta name="copyright" content="Brian Exequiel" />
