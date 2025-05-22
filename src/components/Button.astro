@@ -41,7 +41,7 @@ if (download && !href) {
                 download ? `Descargar ${downloadName || "archivo"}` : title
             }
             rel="noopener noreferrer"
-            target="_blank"
+            target={download || (!href.startsWith("#") && !href.startsWith("/")) ? "_blank" : undefined}
         >
             {iconLeft && <span class="icon icon-left" set:html={iconLeft} />}
             {title}
